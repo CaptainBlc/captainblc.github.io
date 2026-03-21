@@ -1,52 +1,784 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="tr" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Batuhan Taşdemir</title>
+    <title>Batuhan Taşdemir — Software Engineer</title>
+
+    <!-- SEO -->
+    <meta name="description" content="Batuhan Taşdemir — Software Engineer. Full-stack developer portfolio.">
+    <meta property="og:title" content="Batuhan Taşdemir — Software Engineer">
+    <meta property="og:description" content="Software Engineer — Full Stack Developer">
+    <meta property="og:type" content="website">
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22>💻</text></svg>">
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
-        body { font-family: 'Inter', sans-serif; background-color: #fafafa; }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0a0f;
+            color: #e2e8f0;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .hero-bg {
+            background:
+                radial-gradient(ellipse at 20% 50%, rgba(99, 102, 241, 0.15) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(139, 92, 246, 0.10) 0%, transparent 60%),
+                radial-gradient(ellipse at 60% 80%, rgba(6, 182, 212, 0.08) 0%, transparent 60%),
+                #0a0a0f;
+        }
+
+        .skill-tag {
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            color: #a5b4fc;
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .skill-tag:hover {
+            background: rgba(99, 102, 241, 0.2);
+            border-color: rgba(99, 102, 241, 0.6);
+            transform: translateY(-2px);
+        }
+
+        .nav-link {
+            color: #94a3b8;
+            transition: color 0.2s;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        .nav-link:hover { color: #e2e8f0; }
+        .nav-link.active-nav { color: #e2e8f0; }
+
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(99, 102, 241, 0.4), transparent);
+        }
+
+        .timeline-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            flex-shrink: 0;
+            margin-top: 6px;
+        }
+        .timeline-line {
+            width: 2px;
+            background: linear-gradient(to bottom, rgba(99, 102, 241, 0.5), transparent);
+            margin-left: 5px;
+        }
+
+        .project-card {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .project-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 60px rgba(99, 102, 241, 0.2);
+        }
+
+        .contact-link {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.2s;
+        }
+        .contact-link:hover {
+            background: rgba(99, 102, 241, 0.1);
+            border-color: rgba(99, 102, 241, 0.4);
+            transform: translateY(-3px);
+        }
+
+        .avatar-ring {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6, #06b6d4);
+            padding: 3px;
+            border-radius: 50%;
+        }
+        .avatar-ring img {
+            width: 112px;
+            height: 112px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            background: #1e293b;
+        }
+
+        @keyframes bounce-slow {
+            0%, 100% { transform: translateY(0) translateX(-50%); }
+            50% { transform: translateY(8px) translateX(-50%); }
+        }
+        .bounce { animation: bounce-slow 2s infinite; }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in          { animation: fadeInUp 0.7s ease 0.0s both; }
+        .fade-in-delay-1  { animation: fadeInUp 0.7s ease 0.15s both; }
+        .fade-in-delay-2  { animation: fadeInUp 0.7s ease 0.30s both; }
+        .fade-in-delay-3  { animation: fadeInUp 0.7s ease 0.45s both; }
+
+        .typing-cursor::after {
+            content: '|';
+            animation: blink 1s step-end infinite;
+            color: #6366f1;
+        }
+        @keyframes blink { 50% { opacity: 0; } }
+
+        .lang-btn {
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 6px;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+        .lang-btn.active {
+            background: rgba(99, 102, 241, 0.3);
+            color: #a5b4fc;
+        }
+        .lang-btn:not(.active) { color: #64748b; }
+        .lang-btn:not(.active):hover { color: #94a3b8; }
+
+        .tech-badge {
+            font-size: 0.75rem;
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-family: 'Fira Code', monospace;
+            background: rgba(99, 102, 241, 0.12);
+            color: #a5b4fc;
+        }
     </style>
 </head>
-<body class="min-h-screen flex flex-col items-center py-16 px-4">
+<body>
 
-    <div class="text-center mb-10">
-        <div class="w-24 h-24 mx-auto bg-slate-900 rounded-full flex items-center justify-center text-white text-3xl font-bold mb-4 shadow-lg">
-            BT
+<!-- ═══════════════════════════════════ NAVBAR ═══════════════════════════════════ -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+        <div class="flex items-center justify-between h-16">
+
+            <a href="#hero" class="font-extrabold text-xl gradient-text">BT.</a>
+
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#about"      class="nav-link" data-tr="Hakkımda"  data-en="About">Hakkımda</a>
+                <a href="#skills"     class="nav-link" data-tr="Beceriler" data-en="Skills">Beceriler</a>
+                <a href="#experience" class="nav-link" data-tr="Deneyim"   data-en="Experience">Deneyim</a>
+                <a href="#projects"   class="nav-link" data-tr="Projeler"  data-en="Projects">Projeler</a>
+                <a href="#contact"    class="nav-link" data-tr="İletişim"  data-en="Contact">İletişim</a>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <div class="flex items-center gap-1 glass rounded-lg p-1">
+                    <button id="btn-tr" class="lang-btn active" onclick="setLang('tr')">TR</button>
+                    <button id="btn-en" class="lang-btn"        onclick="setLang('en')">EN</button>
+                </div>
+                <button id="menu-toggle" class="md:hidden glass rounded-lg p-2 text-slate-400 hover:text-white transition-colors">
+                    <i class="fas fa-bars text-sm"></i>
+                </button>
+            </div>
         </div>
-        <h1 class="text-2xl font-bold text-slate-900">Batuhan Taşdemir</h1>
-        <p class="text-slate-500 mt-1 font-medium">Software Engineer</p>
     </div>
 
-    <div class="w-full max-w-sm flex flex-col gap-4">
-        
-        <a href="Batuhan_Tasdemir_CV.pdf" target="_blank" class="flex items-center justify-center w-full py-4 px-6 bg-white text-slate-900 font-bold rounded-xl shadow-sm border border-slate-200 hover:shadow-md hover:-translate-y-1 transition-all">
-            <i class="fas fa-file-pdf mr-3 text-red-500 text-xl"></i> CV / Özgeçmiş
-        </a>
-
-        <a href="https://linkedin.com/in/batuhantasdemir03" target="_blank" class="flex items-center justify-center w-full py-4 px-6 bg-white text-slate-900 font-bold rounded-xl shadow-sm border border-slate-200 hover:shadow-md hover:-translate-y-1 transition-all">
-            <i class="fab fa-linkedin mr-3 text-blue-600 text-xl"></i> LinkedIn
-        </a>
-
-        <a href="https://github.com/CaptainBlc" target="_blank" class="flex items-center justify-center w-full py-4 px-6 bg-white text-slate-900 font-bold rounded-xl shadow-sm border border-slate-200 hover:shadow-md hover:-translate-y-1 transition-all">
-            <i class="fab fa-github mr-3 text-slate-900 text-xl"></i> GitHub
-        </a>
-
-        <a href="mailto:batuhanmedine2003@hotmail.com" class="flex items-center justify-center w-full py-4 px-6 bg-white text-slate-900 font-bold rounded-xl shadow-sm border border-slate-200 hover:shadow-md hover:-translate-y-1 transition-all">
-            <i class="fas fa-envelope mr-3 text-slate-500 text-xl"></i> İletişim (Email)
-        </a>
-
-        <div class="w-full border-t border-slate-200 my-4"></div>
-        <p class="text-center text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Projeler</p>
-
-        <a href="https://github.com/CaptainBlc/Leta-Takip" target="_blank" class="flex items-center justify-center w-full py-4 px-6 bg-slate-900 text-white font-bold rounded-xl shadow-md hover:bg-slate-800 hover:-translate-y-1 transition-all">
-            <i class="fas fa-code-branch mr-3 text-slate-400"></i> Leta-Takip Sistemi
-        </a>
-
+    <div id="mobile-menu" class="md:hidden hidden glass border-t border-white/5">
+        <div class="px-4 py-4 flex flex-col gap-4">
+            <a href="#about"      class="nav-link" data-tr="Hakkımda"  data-en="About"      onclick="closeMobileMenu()">Hakkımda</a>
+            <a href="#skills"     class="nav-link" data-tr="Beceriler" data-en="Skills"      onclick="closeMobileMenu()">Beceriler</a>
+            <a href="#experience" class="nav-link" data-tr="Deneyim"   data-en="Experience" onclick="closeMobileMenu()">Deneyim</a>
+            <a href="#projects"   class="nav-link" data-tr="Projeler"  data-en="Projects"   onclick="closeMobileMenu()">Projeler</a>
+            <a href="#contact"    class="nav-link" data-tr="İletişim"  data-en="Contact"    onclick="closeMobileMenu()">İletişim</a>
+        </div>
     </div>
+</nav>
+
+<!-- ═══════════════════════════════════ HERO ════════════════════════════════════ -->
+<section id="hero" class="hero-bg min-h-screen flex flex-col items-center justify-center px-4 pt-16 relative">
+    <div class="max-w-4xl mx-auto text-center">
+
+        <div class="fade-in flex justify-center mb-8">
+            <div class="avatar-ring">
+                <img src="profile.jpg" alt="Batuhan Taşdemir">
+            </div>
+        </div>
+
+        <h1 class="fade-in-delay-1 text-5xl sm:text-6xl md:text-7xl font-extrabold text-white mb-4 leading-tight">
+            Batuhan Taşdemir
+        </h1>
+
+        <p class="fade-in-delay-2 text-xl sm:text-2xl font-mono gradient-text mb-6 typing-cursor">
+            Jr. Software Engineer
+        </p>
+
+        <p class="fade-in-delay-3 text-slate-400 max-w-2xl mx-auto mb-10 text-base leading-relaxed"
+           data-tr="TED Üniversitesi Bilgisayar Mühendisliği 4. sınıf öğrencisi. C#, C++ ve Python'da uygulamalı deneyimle uçtan uca yönetim sistemleri ve full-stack çözümler geliştiriyorum."
+           data-en="Computer Engineering senior at TED University with hands-on experience in C#, C++, and Python. I specialize in building end-to-end management systems and reliable full-stack solutions.">
+            TED Üniversitesi Bilgisayar Mühendisliği 4. sınıf öğrencisi. C#, C++ ve Python'da uygulamalı deneyimle uçtan uca yönetim sistemleri ve full-stack çözümler geliştiriyorum.
+        </p>
+
+        <div class="fade-in-delay-3 flex flex-wrap items-center justify-center gap-4">
+            <a href="#projects"
+               class="px-8 py-3 rounded-xl font-semibold text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-indigo-500/20"
+               style="background: linear-gradient(135deg, #6366f1, #8b5cf6);"
+               data-tr="Projelere Bak" data-en="View Projects">
+                Projelere Bak
+            </a>
+            <a href="Batuhan_Ta%C5%9Fdemir_CV.pdf" target="_blank"
+               class="px-8 py-3 rounded-xl font-semibold glass border border-white/10 text-slate-200 hover:border-indigo-500/50 hover:-translate-y-1 transition-all duration-300"
+               data-tr="CV İndir" data-en="Download CV">
+                CV İndir
+            </a>
+        </div>
+
+        <div class="fade-in-delay-3 flex items-center justify-center gap-6 mt-10">
+            <a href="https://github.com/CaptainBlc" target="_blank"
+               class="text-slate-500 hover:text-white transition-colors duration-200 text-2xl">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://linkedin.com/in/batuhantasdemir03" target="_blank"
+               class="text-slate-500 hover:text-blue-400 transition-colors duration-200 text-2xl">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="mailto:batuhanmedine2003@hotmail.com"
+               class="text-slate-500 hover:text-indigo-400 transition-colors duration-200 text-2xl">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </div>
+    </div>
+
+    <div class="bounce absolute bottom-8 left-1/2 text-slate-600 text-sm">
+        <i class="fas fa-chevron-down"></i>
+    </div>
+</section>
+
+<div class="section-divider max-w-5xl mx-auto"></div>
+
+<!-- ═══════════════════════════════════ ABOUT ═══════════════════════════════════ -->
+<section id="about" class="py-24 px-4">
+    <div class="max-w-5xl mx-auto">
+        <p class="text-indigo-400 font-mono text-sm mb-2">01.</p>
+        <h2 class="text-3xl font-bold text-white mb-1">
+            <span class="gradient-text" data-tr="Hakkımda" data-en="About Me">Hakkımda</span>
+        </h2>
+        <div class="section-divider mb-10 w-16"></div>
+
+        <div class="grid md:grid-cols-5 gap-10 items-start">
+            <div class="md:col-span-3 space-y-4 text-slate-400 leading-relaxed text-base">
+                <p data-tr="TED Üniversitesi Bilgisayar Mühendisliği 4. sınıf öğrencisiyim. C#, C++ ve Python konularında uygulamalı deneyim sahibiyim; uçtan uca yönetim sistemleri geliştirme ve backend mantığını işlevsel arayüzlerle birleştirme konusunda uzmanlaşıyorum."
+                   data-en="Computer Engineering senior at TED University with hands-on experience in C#, C++, and Python. I specialize in building end-to-end management systems, seamlessly connecting backend logic with functional user interfaces.">
+                    TED Üniversitesi Bilgisayar Mühendisliği 4. sınıf öğrencisiyim. C#, C++ ve Python konularında uygulamalı deneyim sahibiyim; uçtan uca yönetim sistemleri geliştirme ve backend mantığını işlevsel arayüzlerle birleştirme konusunda uzmanlaşıyorum.
+                </p>
+                <p data-tr="OOP, veritabanı yönetimi ve Agile metodolojileri alanında güçlü bir temele sahibim. Güvenilir, ölçeklenebilir full-stack çözümler üretmeye odaklanıyorum."
+                   data-en="Bringing a strong foundation in OOP, database management, and Agile methodologies to develop reliable, full-stack solutions.">
+                    OOP, veritabanı yönetimi ve Agile metodolojileri alanında güçlü bir temele sahibim. Güvenilir, ölçeklenebilir full-stack çözümler üretmeye odaklanıyorum.
+                </p>
+                <p data-tr="Boş zamanlarımda Generative AI ve Büyük Dil Modelleri gelişmelerini yakından takip ediyor, açık kaynak projelere katkıda bulunuyor ve satranç ile strateji oyunlarıyla analitik düşüncemi geliştiriyorum."
+                   data-en="In my free time, I closely follow developments in Generative AI and Large Language Models, contribute to open source projects, and enhance my analytical thinking through chess and strategy games.">
+                    Boş zamanlarımda Generative AI ve Büyük Dil Modelleri gelişmelerini yakından takip ediyor, açık kaynak projelere katkıda bulunuyor ve satranç ile strateji oyunlarıyla analitik düşüncemi geliştiriyorum.
+                </p>
+            </div>
+
+            <div class="md:col-span-2 glass rounded-2xl p-6 space-y-5">
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(99,102,241,0.15)">
+                        <i class="fas fa-map-marker-alt text-indigo-400 text-sm"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-slate-500 mb-0.5" data-tr="Konum" data-en="Location">Konum</p>
+                        <p class="text-sm text-slate-300">Ankara, Türkiye</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(99,102,241,0.15)">
+                        <i class="fas fa-circle-check text-green-400 text-sm"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-slate-500 mb-0.5" data-tr="Durum" data-en="Status">Durum</p>
+                        <p class="text-sm text-green-400 font-medium" data-tr="Fırsatlara Açık ✓" data-en="Open to Opportunities ✓">Fırsatlara Açık ✓</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(99,102,241,0.15)">
+                        <i class="fas fa-graduation-cap text-indigo-400 text-sm"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-slate-500 mb-0.5" data-tr="Eğitim" data-en="Education">Eğitim</p>
+                        <p class="text-sm text-slate-300" data-tr="TED Üniversitesi — Bilgisayar Müh." data-en="TED University — Computer Eng.">TED Üniversitesi — Bilgisayar Müh.</p>
+                        <p class="text-xs text-slate-500 mt-0.5" data-tr="2022–2026 (Beklenen) · %50 Burs" data-en="2022–2026 (Expected) · 50% Scholarship">2022–2026 (Beklenen) · %50 Burs</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(99,102,241,0.15)">
+                        <i class="fas fa-language text-indigo-400 text-sm"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-slate-500 mb-0.5" data-tr="Diller" data-en="Languages">Diller</p>
+                        <p class="text-sm text-slate-300" data-tr="Türkçe (Anadil) · İngilizce (C1–C2)" data-en="Turkish (Native) · English (C1–C2)">Türkçe (Anadil) · İngilizce (C1–C2)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="section-divider max-w-5xl mx-auto"></div>
+
+<!-- ═══════════════════════════════════ SKILLS ══════════════════════════════════ -->
+<section id="skills" class="py-24 px-4">
+    <div class="max-w-5xl mx-auto">
+        <p class="text-indigo-400 font-mono text-sm mb-2">02.</p>
+        <h2 class="text-3xl font-bold text-white mb-1">
+            <span class="gradient-text" data-tr="Beceriler" data-en="Skills">Beceriler</span>
+        </h2>
+        <div class="section-divider mb-10 w-16"></div>
+
+        <div class="grid sm:grid-cols-2 gap-5">
+            <div class="glass rounded-2xl p-6">
+                <h3 class="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-4"
+                    data-tr="Programlama Dilleri" data-en="Programming Languages">Programlama Dilleri</h3>
+                <div class="flex flex-wrap gap-2">
+                    <span class="skill-tag">C#</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">C++</span>
+                    <span class="skill-tag">Java</span>
+                    <span class="skill-tag">SQL</span>
+                    <span class="skill-tag">HTML / CSS</span>
+                </div>
+            </div>
+
+            <div class="glass rounded-2xl p-6">
+                <h3 class="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-4"
+                    data-tr="AI & Kütüphaneler" data-en="AI & Libraries">AI & Kütüphaneler</h3>
+                <div class="flex flex-wrap gap-2">
+                    <span class="skill-tag">SpaCy (NLP)</span>
+                    <span class="skill-tag">OpenCV</span>
+                    <span class="skill-tag">.NET</span>
+                    <span class="skill-tag">Unity</span>
+                    <span class="skill-tag">SQLite</span>
+                </div>
+            </div>
+
+            <div class="glass rounded-2xl p-6">
+                <h3 class="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-4"
+                    data-tr="Yazılım Kavramları" data-en="Software Concepts">Yazılım Kavramları</h3>
+                <div class="flex flex-wrap gap-2">
+                    <span class="skill-tag">OOP</span>
+                    <span class="skill-tag">Veri Yapıları</span>
+                    <span class="skill-tag">Design Patterns</span>
+                    <span class="skill-tag">Agile / Scrum</span>
+                    <span class="skill-tag">UML</span>
+                    <span class="skill-tag">REST API</span>
+                </div>
+            </div>
+
+            <div class="glass rounded-2xl p-6">
+                <h3 class="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-4"
+                    data-tr="Araçlar" data-en="Tools">Araçlar</h3>
+                <div class="flex flex-wrap gap-2">
+                    <span class="skill-tag">Git</span>
+                    <span class="skill-tag">GitHub</span>
+                    <span class="skill-tag">Visual Studio</span>
+                    <span class="skill-tag">JetBrains Rider</span>
+                    <span class="skill-tag">Figma</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="section-divider max-w-5xl mx-auto"></div>
+
+<!-- ═══════════════════════════════════ EXPERIENCE ══════════════════════════════ -->
+<section id="experience" class="py-24 px-4">
+    <div class="max-w-5xl mx-auto">
+        <p class="text-indigo-400 font-mono text-sm mb-2">03.</p>
+        <h2 class="text-3xl font-bold text-white mb-1">
+            <span class="gradient-text" data-tr="Deneyim" data-en="Experience">Deneyim</span>
+        </h2>
+        <div class="section-divider mb-10 w-16"></div>
+
+        <div class="space-y-5">
+            <!-- Exp 1: FRANTIC GAMES -->
+            <div class="glass rounded-2xl p-6 flex gap-5">
+                <div class="flex flex-col items-center">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-line flex-1 mt-2"></div>
+                </div>
+                <div class="flex-1 pb-2">
+                    <div class="flex flex-wrap items-start justify-between gap-2 mb-3">
+                        <div>
+                            <h3 class="text-white font-semibold text-base"
+                                data-tr="Oyun Geliştirici Stajyeri" data-en="Game Developer Intern">
+                                Oyun Geliştirici Stajyeri
+                            </h3>
+                            <p class="text-indigo-400 text-sm font-medium">FRANTIC GAMES</p>
+                        </div>
+                        <span class="text-xs text-slate-500 font-mono glass px-3 py-1 rounded-full">
+                            07.2025 – 08.2025
+                        </span>
+                    </div>
+                    <ul class="text-slate-400 text-sm leading-relaxed space-y-1.5 list-none">
+                        <li class="flex gap-2">
+                            <span class="text-indigo-400 mt-0.5 flex-shrink-0">▸</span>
+                            <span data-tr="C# ve Unity kullanarak Scriptable Objects ile modüler ve ölçeklenebilir oyun sistemleri tasarladım."
+                                  data-en="Architected modular systems using C# and Unity with Scriptable Objects for scalable data management and decoupled code structure.">
+                                C# ve Unity kullanarak Scriptable Objects ile modüler ve ölçeklenebilir oyun sistemleri tasarladım.
+                            </span>
+                        </li>
+                        <li class="flex gap-2">
+                            <span class="text-indigo-400 mt-0.5 flex-shrink-0">▸</span>
+                            <span data-tr="Dinamik nesne davranışları için AI pathfinding ve state-machine mantığı geliştirdim."
+                                  data-en="Designed complex AI pathfinding and state-machine logic for dynamic object behaviors.">
+                                Dinamik nesne davranışları için AI pathfinding ve state-machine mantığı geliştirdim.
+                            </span>
+                        </li>
+                        <li class="flex gap-2">
+                            <span class="text-indigo-400 mt-0.5 flex-shrink-0">▸</span>
+                            <span data-tr="Uçtan uca oyun döngüsü mantığı ve UI/HUD sistemleri geliştirdim; sorunsuz kullanıcı deneyimi ve performans optimizasyonu sağladım."
+                                  data-en="Developed end-to-end game loop logic and UI/HUD systems, ensuring seamless user experience and performance optimization.">
+                                Uçtan uca oyun döngüsü mantığı ve UI/HUD sistemleri geliştirdim; sorunsuz kullanıcı deneyimi ve performans optimizasyonu sağladım.
+                            </span>
+                        </li>
+                    </ul>
+                    <div class="flex flex-wrap gap-2 mt-4">
+                        <span class="tech-badge">C#</span>
+                        <span class="tech-badge">Unity</span>
+                        <span class="tech-badge">AI / Pathfinding</span>
+                        <span class="tech-badge">State Machine</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exp 2: INFODIF -->
+            <div class="glass rounded-2xl p-6 flex gap-5">
+                <div class="flex flex-col items-center">
+                    <div class="timeline-dot"></div>
+                </div>
+                <div class="flex-1">
+                    <div class="flex flex-wrap items-start justify-between gap-2 mb-3">
+                        <div>
+                            <h3 class="text-white font-semibold text-base"
+                                data-tr="Yazılım Programcısı Stajyeri" data-en="Software Programmer Intern">
+                                Yazılım Programcısı Stajyeri
+                            </h3>
+                            <p class="text-indigo-400 text-sm font-medium">INFODIF Yazılım ve Bilişim Teknolojileri</p>
+                        </div>
+                        <span class="text-xs text-slate-500 font-mono glass px-3 py-1 rounded-full">
+                            06.2024 – 08.2024
+                        </span>
+                    </div>
+                    <ul class="text-slate-400 text-sm leading-relaxed space-y-1.5 list-none">
+                        <li class="flex gap-2">
+                            <span class="text-indigo-400 mt-0.5 flex-shrink-0">▸</span>
+                            <span data-tr="Python ve C++ kullanarak gerçek zamanlı nesne tespiti ve veri işleme için yüksek performanslı backend modüller geliştirdim."
+                                  data-en="Developed high-performance back-end modules using Python and C++ for real-time object detection and data processing.">
+                                Python ve C++ kullanarak gerçek zamanlı nesne tespiti ve veri işleme için yüksek performanslı backend modüller geliştirdim.
+                            </span>
+                        </li>
+                        <li class="flex gap-2">
+                            <span class="text-indigo-400 mt-0.5 flex-shrink-0">▸</span>
+                            <span data-tr="SpaCy kullanarak yapılandırılmamış metin verilerini otomatik sınıflandıran özel bir NER aracı geliştirdim."
+                                  data-en="Built a custom Named Entity Recognition (NER) tool using SpaCy to automate and classify unstructured text data.">
+                                SpaCy kullanarak yapılandırılmamış metin verilerini otomatik sınıflandıran özel bir NER aracı geliştirdim.
+                            </span>
+                        </li>
+                        <li class="flex gap-2">
+                            <span class="text-indigo-400 mt-0.5 flex-shrink-0">▸</span>
+                            <span data-tr="C++ ile algoritmik karmaşıklık ve bellek yönetimine odaklanarak satranç/sudoku çözücüleri tasarladım."
+                                  data-en="Engineered optimized logical solvers (Chess/Sudoku) using C++, focusing on algorithmic complexity and memory management.">
+                                C++ ile algoritmik karmaşıklık ve bellek yönetimine odaklanarak satranç/sudoku çözücüleri tasarladım.
+                            </span>
+                        </li>
+                    </ul>
+                    <div class="flex flex-wrap gap-2 mt-4">
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">C++</span>
+                        <span class="tech-badge">SpaCy</span>
+                        <span class="tech-badge">OpenCV</span>
+                        <span class="tech-badge">NLP</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="section-divider max-w-5xl mx-auto"></div>
+
+<!-- ═══════════════════════════════════ PROJECTS ════════════════════════════════ -->
+<section id="projects" class="py-24 px-4">
+    <div class="max-w-5xl mx-auto">
+        <p class="text-indigo-400 font-mono text-sm mb-2">04.</p>
+        <h2 class="text-3xl font-bold text-white mb-1">
+            <span class="gradient-text" data-tr="Projeler" data-en="Projects">Projeler</span>
+        </h2>
+        <div class="section-divider mb-10 w-16"></div>
+
+        <div class="grid sm:grid-cols-2 gap-6">
+
+            <!-- Project 1: Leta-Takip -->
+            <div class="project-card glass rounded-2xl p-6 flex flex-col gap-4">
+                <div class="flex items-start justify-between">
+                    <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background:rgba(99,102,241,0.2)">
+                        <i class="fas fa-desktop text-indigo-400"></i>
+                    </div>
+                    <a href="https://github.com/CaptainBlc/Leta-Takip" target="_blank"
+                       class="text-slate-500 hover:text-white transition-colors text-lg">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+                <div>
+                    <h3 class="text-white font-semibold text-base mb-1">Leta-Takip Sistemi</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed"
+                       data-tr="Bir işletmenin müşteri seanslarını ve finansal kayıtlarını verimli şekilde takip etmesini sağlayan masaüstü uygulama. SQLite veritabanı ve Python ile otomatik randevu ve ödeme raporları."
+                       data-en="A complete desktop application to help a business track client sessions and manage financial records. Secure SQLite database, Python automation for appointment schedules and payment reports.">
+                        Bir işletmenin müşteri seanslarını ve finansal kayıtlarını verimli şekilde takip etmesini sağlayan masaüstü uygulama. SQLite veritabanı ve Python ile otomatik randevu ve ödeme raporları.
+                    </p>
+                </div>
+                <div class="flex flex-wrap gap-2 mt-auto">
+                    <span class="tech-badge">Python</span>
+                    <span class="tech-badge">SQLite</span>
+                    <span class="tech-badge">Desktop App</span>
+                </div>
+            </div>
+
+            <!-- Project 2: NER Tool -->
+            <div class="project-card glass rounded-2xl p-6 flex flex-col gap-4">
+                <div class="flex items-start justify-between">
+                    <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background:rgba(6,182,212,0.15)">
+                        <i class="fas fa-brain text-cyan-400"></i>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-white font-semibold text-base mb-1"
+                        data-tr="NLP Tabanlı NER Aracı" data-en="NLP-Based NER Tool">
+                        NLP Tabanlı NER Aracı
+                    </h3>
+                    <p class="text-slate-400 text-sm leading-relaxed"
+                       data-tr="SpaCy kullanarak ham metinden yararlı bilgileri otomatik çıkaran ve sınıflandıran NLP aracı. Büyük miktardaki veriyi hızla kategorize etmek için AI modelleri eğitildi."
+                       data-en="A custom NLP tool using SpaCy to automatically extract and organize information from raw text. Trained AI models to recognize key entities and categorize large amounts of data at scale.">
+                        SpaCy kullanarak ham metinden yararlı bilgileri otomatik çıkaran ve sınıflandıran NLP aracı. Büyük miktardaki veriyi hızla kategorize etmek için AI modelleri eğitildi.
+                    </p>
+                </div>
+                <div class="flex flex-wrap gap-2 mt-auto">
+                    <span class="tech-badge">Python</span>
+                    <span class="tech-badge">SpaCy</span>
+                    <span class="tech-badge">NLP / AI</span>
+                </div>
+            </div>
+
+            <!-- Project 3: Algorithmic Solvers -->
+            <div class="project-card glass rounded-2xl p-6 flex flex-col gap-4">
+                <div class="flex items-start justify-between">
+                    <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background:rgba(245,158,11,0.12)">
+                        <i class="fas fa-chess text-amber-400"></i>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-white font-semibold text-base mb-1"
+                        data-tr="Yüksek Performanslı Algoritmik Çözücüler" data-en="High-Performance Algorithmic Solvers">
+                        Yüksek Performanslı Algoritmik Çözücüler
+                    </h3>
+                    <p class="text-slate-400 text-sm leading-relaxed"
+                       data-tr="C++ ile satranç ve sudoku gibi karmaşık mantık bulmacalarını hızlıca çözen programlar. Bellek optimizasyonu ve akıllı arama yöntemlerine odaklanıldı."
+                       data-en="Highly efficient C++ programs to quickly solve complex logic puzzles like Chess and Sudoku, with a heavy focus on memory optimization and smart search methods for high-speed performance.">
+                        C++ ile satranç ve sudoku gibi karmaşık mantık bulmacalarını hızlıca çözen programlar. Bellek optimizasyonu ve akıllı arama yöntemlerine odaklanıldı.
+                    </p>
+                </div>
+                <div class="flex flex-wrap gap-2 mt-auto">
+                    <span class="tech-badge">C++</span>
+                    <span class="tech-badge">Algoritmalar</span>
+                    <span class="tech-badge">Bellek Optimizasyonu</span>
+                </div>
+            </div>
+
+            <!-- Project 4: Unity Modular System -->
+            <div class="project-card glass rounded-2xl p-6 flex flex-col gap-4">
+                <div class="flex items-start justify-between">
+                    <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background:rgba(139,92,246,0.15)">
+                        <i class="fas fa-cubes text-violet-400"></i>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-white font-semibold text-base mb-1"
+                        data-tr="Modüler Oyun Sistemi (C# / Unity)" data-en="Modular Game System (C# / Unity)">
+                        Modüler Oyun Sistemi (C# / Unity)
+                    </h3>
+                    <p class="text-slate-400 text-sm leading-relaxed"
+                       data-tr="Unity'de C# ile yönetimi ve genişletilmesi kolay modüler bir oyun sistemi. Scriptable Objects ile oyun verilerini koddan ayırarak AI karakterlerin pathfinding ve state machine mantığı uygulandı."
+                       data-en="A highly organized game system in Unity (C#) using Scriptable Objects to separate data from core code. Implemented AI characters with pathfinding and state machines, applying clean code principles.">
+                        Unity'de C# ile yönetimi ve genişletilmesi kolay modüler bir oyun sistemi. Scriptable Objects ile oyun verilerini koddan ayırarak AI karakterlerin pathfinding ve state machine mantığı uygulandı.
+                    </p>
+                </div>
+                <div class="flex flex-wrap gap-2 mt-auto">
+                    <span class="tech-badge">C#</span>
+                    <span class="tech-badge">Unity</span>
+                    <span class="tech-badge">Design Patterns</span>
+                    <span class="tech-badge">AI</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="text-center mt-10">
+            <a href="https://github.com/CaptainBlc" target="_blank"
+               class="inline-flex items-center gap-2 text-slate-400 hover:text-white transition-colors group text-sm">
+                <span data-tr="Tüm projeleri GitHub'da gör" data-en="View all projects on GitHub">
+                    Tüm projeleri GitHub'da gör
+                </span>
+                <i class="fab fa-github group-hover:translate-x-1 transition-transform"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+<div class="section-divider max-w-5xl mx-auto"></div>
+
+<!-- ═══════════════════════════════════ CONTACT ═════════════════════════════════ -->
+<section id="contact" class="py-24 px-4">
+    <div class="max-w-5xl mx-auto">
+        <p class="text-indigo-400 font-mono text-sm mb-2">05.</p>
+        <h2 class="text-3xl font-bold text-white mb-1">
+            <span class="gradient-text" data-tr="İletişim" data-en="Contact">İletişim</span>
+        </h2>
+        <div class="section-divider mb-10 w-16"></div>
+
+        <div class="glass rounded-2xl p-8 sm:p-14 text-center mb-8">
+            <p class="text-slate-400 text-lg mb-8 max-w-lg mx-auto"
+               data-tr="Bir proje fikrin mi var, iş birliği yapmak mı istiyorsun ya da sadece merhaba mı demek istiyorsun? Her zaman yanıt veririm."
+               data-en="Have a project idea, want to collaborate, or just want to say hello? I always reply.">
+                Bir proje fikrin mi var, iş birliği yapmak mı istiyorsun ya da sadece merhaba mı demek istiyorsun? Her zaman yanıt veririm.
+            </p>
+            <a href="mailto:batuhanmedine2003@hotmail.com"
+               class="inline-flex items-center gap-3 px-10 py-4 rounded-xl font-semibold text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/20 text-base"
+               style="background: linear-gradient(135deg, #6366f1, #8b5cf6);">
+                <i class="fas fa-envelope"></i>
+                <span data-tr="E-posta Gönder" data-en="Send Email">E-posta Gönder</span>
+            </a>
+        </div>
+
+        <div class="grid sm:grid-cols-3 gap-4">
+            <a href="https://github.com/CaptainBlc" target="_blank" class="contact-link rounded-xl p-4 flex items-center gap-4">
+                <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(255,255,255,0.06)">
+                    <i class="fab fa-github text-white text-lg"></i>
+                </div>
+                <div>
+                    <p class="text-xs text-slate-500">GitHub</p>
+                    <p class="text-sm text-slate-300 font-medium">@CaptainBlc</p>
+                </div>
+            </a>
+
+            <a href="https://linkedin.com/in/batuhantasdemir03" target="_blank" class="contact-link rounded-xl p-4 flex items-center gap-4">
+                <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(37,99,235,0.12)">
+                    <i class="fab fa-linkedin text-blue-400 text-lg"></i>
+                </div>
+                <div>
+                    <p class="text-xs text-slate-500">LinkedIn</p>
+                    <p class="text-sm text-slate-300 font-medium">batuhantasdemir03</p>
+                </div>
+            </a>
+
+            <a href="Batuhan_Ta%C5%9Fdemir_CV.pdf" target="_blank" class="contact-link rounded-xl p-4 flex items-center gap-4">
+                <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(239,68,68,0.1)">
+                    <i class="fas fa-file-pdf text-red-400 text-lg"></i>
+                </div>
+                <div>
+                    <p class="text-xs text-slate-500">CV / Özgeçmiş</p>
+                    <p class="text-sm text-slate-300 font-medium" data-tr="PDF İndir" data-en="Download PDF">PDF İndir</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════ FOOTER ══════════════════════════════════ -->
+<footer class="py-8 px-4 text-center border-t border-white/5">
+    <p class="text-slate-600 text-sm">
+        <span data-tr="Batuhan Taşdemir tarafından yapıldı" data-en="Made by Batuhan Taşdemir">
+            Batuhan Taşdemir tarafından yapıldı
+        </span>
+        &nbsp;·&nbsp; 2025
+    </p>
+</footer>
+
+<!-- ═══════════════════════════════════ JAVASCRIPT ══════════════════════════════ -->
+<script>
+    // ── Language ─────────────────────────────────────────────────────────────────
+    let currentLang = 'tr';
+
+    function setLang(lang) {
+        currentLang = lang;
+        document.documentElement.lang = lang;
+
+        document.getElementById('btn-tr').classList.toggle('active', lang === 'tr');
+        document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+
+        document.querySelectorAll('[data-tr]').forEach(el => {
+            const val = lang === 'tr' ? el.dataset.tr : el.dataset.en;
+            if (val !== undefined) el.textContent = val;
+        });
+    }
+
+    // ── Navbar scroll ─────────────────────────────────────────────────────────────
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 20) {
+            navbar.style.background      = 'rgba(10,10,15,0.92)';
+            navbar.style.backdropFilter  = 'blur(20px)';
+            navbar.style.borderBottom    = '1px solid rgba(255,255,255,0.05)';
+        } else {
+            navbar.style.background      = 'transparent';
+            navbar.style.backdropFilter  = 'none';
+            navbar.style.borderBottom    = 'none';
+        }
+    });
+
+    // ── Mobile menu ───────────────────────────────────────────────────────────────
+    document.getElementById('menu-toggle').addEventListener('click', () => {
+        document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
+    function closeMobileMenu() {
+        document.getElementById('mobile-menu').classList.add('hidden');
+    }
+
+    // ── Active nav highlight ──────────────────────────────────────────────────────
+    const sections  = document.querySelectorAll('section[id]');
+    const navLinks  = document.querySelectorAll('nav .nav-link');
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                navLinks.forEach(link => {
+                    const isActive = link.getAttribute('href') === '#' + entry.target.id;
+                    link.classList.toggle('active-nav', isActive);
+                });
+            }
+        });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+
+    sections.forEach(s => observer.observe(s));
+</script>
 
 </body>
-</html
+</html>
