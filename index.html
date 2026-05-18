@@ -3,13 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Batuhan Taşdemir — Jr. Computer Enginner </title>
+    <title>Batuhan Taşdemir — Computer Engineer</title>
 
     <!-- SEO -->
     <meta name="description" content="Batuhan Taşdemir — Computer Engineer. Full-stack developer portfolio.">
+    <link rel="canonical" href="https://captainblc.github.io/">
     <meta property="og:title" content="Batuhan Taşdemir — Computer Engineer">
     <meta property="og:description" content="Computer Engineer — Full Stack Developer">
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://captainblc.github.io/">
+    <meta property="og:image" content="https://captainblc.github.io/profile.jpg">
+    <meta property="og:image:width" content="400">
+    <meta property="og:image:height" content="400">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Batuhan Taşdemir — Computer Engineer">
+    <meta name="twitter:description" content="Computer Engineer — Full Stack Developer">
+    <meta name="twitter:image" content="https://captainblc.github.io/profile.jpg">
 
     <!-- Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22>💻</text></svg>">
@@ -116,6 +125,7 @@
             background: linear-gradient(135deg, #6366f1, #8b5cf6, #06b6d4);
             padding: 3px;
             border-radius: 50%;
+            animation: avatar-float 5s ease-in-out infinite;
         }
         .avatar-ring img {
             width: 112px;
@@ -128,9 +138,9 @@
 
         @keyframes bounce-slow {
             0%, 100% { transform: translateY(0) translateX(-50%); }
-            50% { transform: translateY(8px) translateX(-50%); }
+            50% { transform: translateY(6px) translateX(-50%); }
         }
-        .bounce { animation: bounce-slow 2s infinite; }
+        .bounce { animation: bounce-slow 3s ease-in-out infinite; }
 
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(30px); }
@@ -170,6 +180,68 @@
             font-family: 'Fira Code', monospace;
             background: rgba(99, 102, 241, 0.12);
             color: #a5b4fc;
+        }
+
+        /* Scroll reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.55s ease, transform 0.55s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-stagger > * {
+            opacity: 0;
+            transform: translateY(14px);
+            transition: opacity 0.45s ease, transform 0.45s ease;
+        }
+        .reveal-stagger.visible > *:nth-child(1) { transition-delay: 0.05s; }
+        .reveal-stagger.visible > *:nth-child(2) { transition-delay: 0.1s; }
+        .reveal-stagger.visible > *:nth-child(3) { transition-delay: 0.15s; }
+        .reveal-stagger.visible > *:nth-child(4) { transition-delay: 0.2s; }
+        .reveal-stagger.visible > * {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Subtle hero ambience */
+        .hero-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(72px);
+            pointer-events: none;
+            opacity: 0.35;
+            animation: orb-drift 18s ease-in-out infinite;
+        }
+        .hero-orb-1 { width: 280px; height: 280px; background: #6366f1; top: 15%; left: 10%; }
+        .hero-orb-2 { width: 220px; height: 220px; background: #8b5cf6; top: 25%; right: 12%; animation-delay: -6s; }
+        .hero-orb-3 { width: 180px; height: 180px; background: #06b6d4; bottom: 20%; left: 40%; animation-delay: -12s; }
+
+        @keyframes orb-drift {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(12px, -10px) scale(1.05); }
+        }
+
+        @keyframes avatar-float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .reveal, .reveal-stagger > * {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
+            .fade-in, .fade-in-delay-1, .fade-in-delay-2, .fade-in-delay-3,
+            .bounce, .avatar-ring, .hero-orb, .typing-cursor::after {
+                animation: none !important;
+            }
+            .skill-tag:hover, .project-card:hover, .contact-link:hover {
+                transform: none;
+            }
         }
     </style>
 </head>
@@ -214,8 +286,11 @@
 </nav>
 
 <!-- ═══════════════════════════════════ HERO ════════════════════════════════════ -->
-<section id="hero" class="hero-bg min-h-screen flex flex-col items-center justify-center px-4 pt-16 relative">
-    <div class="max-w-4xl mx-auto text-center">
+<section id="hero" class="hero-bg min-h-screen flex flex-col items-center justify-center px-4 pt-16 relative overflow-hidden">
+    <div class="hero-orb hero-orb-1" aria-hidden="true"></div>
+    <div class="hero-orb hero-orb-2" aria-hidden="true"></div>
+    <div class="hero-orb hero-orb-3" aria-hidden="true"></div>
+    <div class="max-w-4xl mx-auto text-center relative z-10">
 
         <div class="fade-in flex justify-center mb-8">
             <div class="avatar-ring">
@@ -227,8 +302,9 @@
             Batuhan Taşdemir
         </h1>
 
-        <p class="fade-in-delay-2 text-xl sm:text-2xl font-mono gradient-text mb-6 typing-cursor">
-            Jr. Computer Enginner 
+        <p class="fade-in-delay-2 text-xl sm:text-2xl font-mono gradient-text mb-6 typing-cursor"
+           data-tr="Bilgisayar Mühendisi" data-en="Computer Engineer">
+            Bilgisayar Mühendisi
         </p>
 
         <p class="fade-in-delay-3 text-slate-400 max-w-2xl mx-auto mb-10 text-base leading-relaxed"
@@ -276,7 +352,7 @@
 
 <!-- ═══════════════════════════════════ ABOUT ═══════════════════════════════════ -->
 <section id="about" class="py-24 px-4">
-    <div class="max-w-5xl mx-auto">
+    <div class="max-w-5xl mx-auto reveal">
         <p class="text-indigo-400 font-mono text-sm mb-2">01.</p>
         <h2 class="text-3xl font-bold text-white mb-1">
             <span class="gradient-text" data-tr="Hakkımda" data-en="About Me">Hakkımda</span>
@@ -346,14 +422,14 @@
 
 <!-- ═══════════════════════════════════ SKILLS ══════════════════════════════════ -->
 <section id="skills" class="py-24 px-4">
-    <div class="max-w-5xl mx-auto">
+    <div class="max-w-5xl mx-auto reveal">
         <p class="text-indigo-400 font-mono text-sm mb-2">02.</p>
         <h2 class="text-3xl font-bold text-white mb-1">
             <span class="gradient-text" data-tr="Beceriler" data-en="Skills">Beceriler</span>
         </h2>
         <div class="section-divider mb-10 w-16"></div>
 
-        <div class="grid sm:grid-cols-2 gap-5">
+        <div class="grid sm:grid-cols-2 gap-5 reveal-stagger">
             <div class="glass rounded-2xl p-6">
                 <h3 class="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-4"
                     data-tr="Programlama Dilleri" data-en="Programming Languages">Programlama Dilleri</h3>
@@ -411,14 +487,14 @@
 
 <!-- ═══════════════════════════════════ EXPERIENCE ══════════════════════════════ -->
 <section id="experience" class="py-24 px-4">
-    <div class="max-w-5xl mx-auto">
+    <div class="max-w-5xl mx-auto reveal">
         <p class="text-indigo-400 font-mono text-sm mb-2">03.</p>
         <h2 class="text-3xl font-bold text-white mb-1">
             <span class="gradient-text" data-tr="Deneyim" data-en="Experience">Deneyim</span>
         </h2>
         <div class="section-divider mb-10 w-16"></div>
 
-        <div class="space-y-5">
+        <div class="space-y-5 reveal-stagger">
             <!-- Exp 1: FRANTIC GAMES -->
             <div class="glass rounded-2xl p-6 flex gap-5">
                 <div class="flex flex-col items-center">
@@ -528,14 +604,14 @@
 
 <!-- ═══════════════════════════════════ PROJECTS ════════════════════════════════ -->
 <section id="projects" class="py-24 px-4">
-    <div class="max-w-5xl mx-auto">
+    <div class="max-w-5xl mx-auto reveal">
         <p class="text-indigo-400 font-mono text-sm mb-2">04.</p>
         <h2 class="text-3xl font-bold text-white mb-1">
             <span class="gradient-text" data-tr="Projeler" data-en="Projects">Projeler</span>
         </h2>
         <div class="section-divider mb-10 w-16"></div>
 
-        <div class="grid sm:grid-cols-2 gap-6">
+        <div class="grid sm:grid-cols-2 gap-6 reveal-stagger">
 
             <!-- Project 1: Leta-Takip -->
             <div class="project-card glass rounded-2xl p-6 flex flex-col gap-4">
@@ -657,7 +733,7 @@
 
 <!-- ═══════════════════════════════════ CONTACT ═════════════════════════════════ -->
 <section id="contact" class="py-24 px-4">
-    <div class="max-w-5xl mx-auto">
+    <div class="max-w-5xl mx-auto reveal">
         <p class="text-indigo-400 font-mono text-sm mb-2">05.</p>
         <h2 class="text-3xl font-bold text-white mb-1">
             <span class="gradient-text" data-tr="İletişim" data-en="Contact">İletişim</span>
@@ -718,7 +794,7 @@
         <span data-tr="Batuhan Taşdemir tarafından yapıldı" data-en="Made by Batuhan Taşdemir">
             Batuhan Taşdemir tarafından yapıldı
         </span>
-        &nbsp;·&nbsp; 2025
+        &nbsp;·&nbsp; <span id="footer-year">2026</span>
     </p>
 </footer>
 
@@ -784,6 +860,20 @@
     }, { rootMargin: '-40% 0px -55% 0px' });
 
     sections.forEach(s => observer.observe(s));
+
+    // ── Scroll reveal ─────────────────────────────────────────────────────────────
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12, rootMargin: '0px 0px -32px 0px' });
+
+    document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => revealObserver.observe(el));
+
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
 </script>
 
 </body>
