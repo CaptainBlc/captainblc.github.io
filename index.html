@@ -244,8 +244,8 @@
                data-tr="Projelere Bak" data-en="View Projects">
                 Projelere Bak
             </a>
-            <a href="Batuhan_Ta%C5%9Fdemir_CV.pdf" target="_blank"
-               class="px-8 py-3 rounded-xl font-semibold glass border border-white/10 text-slate-200 hover:border-indigo-500/50 hover:-translate-y-1 transition-all duration-300"
+            <a href="Batuhan_Tasdemir_CV_TR.pdf" target="_blank"
+               class="cv-link px-8 py-3 rounded-xl font-semibold glass border border-white/10 text-slate-200 hover:border-indigo-500/50 hover:-translate-y-1 transition-all duration-300"
                data-tr="CV İndir" data-en="Download CV">
                 CV İndir
             </a>
@@ -699,12 +699,12 @@
                 </div>
             </a>
 
-            <a href="Batuhan_Ta%C5%9Fdemir_CV.pdf" target="_blank" class="contact-link rounded-xl p-4 flex items-center gap-4">
+            <a href="Batuhan_Tasdemir_CV_TR.pdf" target="_blank" class="cv-link contact-link rounded-xl p-4 flex items-center gap-4">
                 <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(239,68,68,0.1)">
                     <i class="fas fa-file-pdf text-red-400 text-lg"></i>
                 </div>
                 <div>
-                    <p class="text-xs text-slate-500">CV / Özgeçmiş</p>
+                    <p class="text-xs text-slate-500" data-tr="CV / Özgeçmiş" data-en="CV / Resume">CV / Özgeçmiş</p>
                     <p class="text-sm text-slate-300 font-medium" data-tr="PDF İndir" data-en="Download PDF">PDF İndir</p>
                 </div>
             </a>
@@ -727,6 +727,8 @@
     // ── Language ─────────────────────────────────────────────────────────────────
     let currentLang = 'tr';
 
+    const CV_FILES = { tr: 'Batuhan_Tasdemir_CV_TR.pdf', en: 'Batuhan_Tasdemir_CV_ENG.pdf' };
+
     function setLang(lang) {
         currentLang = lang;
         document.documentElement.lang = lang;
@@ -737,6 +739,10 @@
         document.querySelectorAll('[data-tr]').forEach(el => {
             const val = lang === 'tr' ? el.dataset.tr : el.dataset.en;
             if (val !== undefined) el.textContent = val;
+        });
+
+        document.querySelectorAll('.cv-link').forEach(el => {
+            el.href = CV_FILES[lang];
         });
     }
 
