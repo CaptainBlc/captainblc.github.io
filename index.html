@@ -3,878 +3,1130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Batuhan Taşdemir — Computer Engineer</title>
+    <title>Batuhan Taşdemir — Bilgisayar Mühendisi</title>
 
-    <!-- SEO -->
-    <meta name="description" content="Batuhan Taşdemir — Computer Engineer. Full-stack developer portfolio.">
+    <meta name="description" content="Batuhan Taşdemir — TED Üniversitesi Bilgisayar Mühendisliği. Full-stack geliştirici portfolyosu: Leta-Takip, OptiLumen, NovaStore ve daha fazlası.">
     <link rel="canonical" href="https://captainblc.github.io/">
-    <meta property="og:title" content="Batuhan Taşdemir — Computer Engineer">
-    <meta property="og:description" content="Computer Engineer — Full Stack Developer">
+    <meta property="og:title" content="Batuhan Taşdemir — Bilgisayar Mühendisi">
+    <meta property="og:description" content="Uçtan uca sistemler ve pratik full-stack çözümler geliştiren bilgisayar mühendisi.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://captainblc.github.io/">
     <meta property="og:image" content="https://captainblc.github.io/profile.jpg">
-    <meta property="og:image:width" content="400">
-    <meta property="og:image:height" content="400">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Batuhan Taşdemir — Computer Engineer">
-    <meta name="twitter:description" content="Computer Engineer — Full Stack Developer">
+    <meta name="twitter:title" content="Batuhan Taşdemir — Bilgisayar Mühendisi">
+    <meta name="twitter:description" content="Uçtan uca sistemler ve pratik full-stack çözümler geliştiren bilgisayar mühendisi.">
     <meta name="twitter:image" content="https://captainblc.github.io/profile.jpg">
 
-    <!-- Favicon -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22>💻</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230F766E'/><text x='16' y='22' text-anchor='middle' font-family='Georgia,serif' font-size='16' font-weight='700' fill='%23F4F7F5'>BT</text></svg>">
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Syne:wght@500;600;700;800&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
     <style>
-        * { box-sizing: border-box; }
+        :root {
+            --ink: #14201c;
+            --ink-soft: #2c3b35;
+            --muted: #5c6d66;
+            --line: #d5ddd8;
+            --paper: #f4f7f5;
+            --paper-2: #e7eee9;
+            --accent: #0f766e;
+            --accent-deep: #0a534e;
+            --accent-soft: #d8ebe7;
+            --warm: #c9783a;
+            --hero-overlay: linear-gradient(105deg, rgba(20, 32, 28, 0.92) 0%, rgba(20, 32, 28, 0.72) 42%, rgba(20, 32, 28, 0.35) 70%, rgba(20, 32, 28, 0.18) 100%);
+            --shadow: 0 18px 50px rgba(20, 32, 28, 0.12);
+            --radius: 4px;
+            --max: 1120px;
+            --nav-h: 72px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html { scroll-behavior: smooth; }
+
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0a0a0f;
-            color: #e2e8f0;
-        }
-
-        .gradient-text {
-            background: linear-gradient(135deg, #6366f1, #8b5cf6, #06b6d4);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .glass {
-            background: rgba(255, 255, 255, 0.04);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .hero-bg {
+            font-family: "Source Sans 3", sans-serif;
+            color: var(--ink);
             background:
-                radial-gradient(ellipse at 20% 50%, rgba(99, 102, 241, 0.15) 0%, transparent 60%),
-                radial-gradient(ellipse at 80% 20%, rgba(139, 92, 246, 0.10) 0%, transparent 60%),
-                radial-gradient(ellipse at 60% 80%, rgba(6, 182, 212, 0.08) 0%, transparent 60%),
-                #0a0a0f;
+                radial-gradient(ellipse 80% 50% at 100% 0%, rgba(15, 118, 110, 0.08), transparent 55%),
+                radial-gradient(ellipse 60% 40% at 0% 30%, rgba(201, 120, 58, 0.06), transparent 50%),
+                linear-gradient(180deg, var(--paper) 0%, #eef3f0 48%, var(--paper) 100%);
+            line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        .skill-tag {
-            background: rgba(99, 102, 241, 0.1);
-            border: 1px solid rgba(99, 102, 241, 0.3);
-            color: #a5b4fc;
-            padding: 6px 14px;
-            border-radius: 999px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            transition: all 0.2s;
-        }
-        .skill-tag:hover {
-            background: rgba(99, 102, 241, 0.2);
-            border-color: rgba(99, 102, 241, 0.6);
-            transform: translateY(-2px);
+        img { max-width: 100%; display: block; }
+        a { color: inherit; text-decoration: none; }
+        button { font: inherit; border: 0; background: none; cursor: pointer; }
+
+        .wrap {
+            width: min(100% - 2rem, var(--max));
+            margin-inline: auto;
         }
 
-        .nav-link {
-            color: #94a3b8;
-            transition: color 0.2s;
-            font-size: 0.9rem;
+        .eyebrow {
+            font-family: "IBM Plex Mono", monospace;
+            font-size: 0.78rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--accent);
             font-weight: 500;
         }
-        .nav-link:hover { color: #e2e8f0; }
-        .nav-link.active-nav { color: #e2e8f0; }
 
-        .section-divider {
-            height: 1px;
-            background: linear-gradient(to right, transparent, rgba(99, 102, 241, 0.4), transparent);
-        }
-
-        .timeline-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #6366f1, #8b5cf6);
-            flex-shrink: 0;
-            margin-top: 6px;
-        }
-        .timeline-line {
-            width: 2px;
-            background: linear-gradient(to bottom, rgba(99, 102, 241, 0.5), transparent);
-            margin-left: 5px;
+        .display {
+            font-family: Syne, sans-serif;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.05;
         }
 
-        .project-card {
-            transition: transform 0.3s, box-shadow 0.3s;
+        /* ── Nav ── */
+        .nav {
+            position: fixed;
+            inset: 0 0 auto;
+            z-index: 50;
+            height: var(--nav-h);
+            transition: background 0.25s ease, border-color 0.25s ease, backdrop-filter 0.25s ease;
+            border-bottom: 1px solid transparent;
+            color: #f4f7f5;
         }
-        .project-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 60px rgba(99, 102, 241, 0.2);
+        .nav.is-solid {
+            background: rgba(244, 247, 245, 0.92);
+            backdrop-filter: blur(14px);
+            border-bottom-color: var(--line);
+            color: var(--ink);
         }
+        .nav-inner {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+        .brand {
+            font-family: Syne, sans-serif;
+            font-weight: 800;
+            font-size: 1.2rem;
+            letter-spacing: -0.04em;
+            color: inherit;
+        }
+        .brand span { color: #7ecfc6; }
+        .nav.is-solid .brand span { color: var(--accent); }
 
-        .contact-link {
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            transition: all 0.2s;
+        .nav-links {
+            display: none;
+            align-items: center;
+            gap: 1.6rem;
         }
-        .contact-link:hover {
-            background: rgba(99, 102, 241, 0.1);
-            border-color: rgba(99, 102, 241, 0.4);
-            transform: translateY(-3px);
-        }
-
-        .avatar-ring {
-            background: linear-gradient(135deg, #6366f1, #8b5cf6, #06b6d4);
-            padding: 3px;
-            border-radius: 50%;
-            animation: avatar-float 5s ease-in-out infinite;
-        }
-        .avatar-ring img {
-            width: 112px;
-            height: 112px;
-            border-radius: 50%;
-            object-fit: cover;
-            display: block;
-            background: #1e293b;
-        }
-
-        @keyframes bounce-slow {
-            0%, 100% { transform: translateY(0) translateX(-50%); }
-            50% { transform: translateY(6px) translateX(-50%); }
-        }
-        .bounce { animation: bounce-slow 3s ease-in-out infinite; }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
-        .fade-in          { animation: fadeInUp 0.7s ease 0.0s both; }
-        .fade-in-delay-1  { animation: fadeInUp 0.7s ease 0.15s both; }
-        .fade-in-delay-2  { animation: fadeInUp 0.7s ease 0.30s both; }
-        .fade-in-delay-3  { animation: fadeInUp 0.7s ease 0.45s both; }
-
-        .typing-cursor::after {
-            content: '|';
-            animation: blink 1s step-end infinite;
-            color: #6366f1;
-        }
-        @keyframes blink { 50% { opacity: 0; } }
-
-        .lang-btn {
-            font-size: 0.8rem;
+        .nav-links a {
+            font-size: 0.95rem;
             font-weight: 600;
-            padding: 4px 10px;
-            border-radius: 6px;
-            transition: all 0.2s;
-            cursor: pointer;
+            color: rgba(244, 247, 245, 0.72);
+            transition: color 0.2s;
         }
-        .lang-btn.active {
-            background: rgba(99, 102, 241, 0.3);
-            color: #a5b4fc;
-        }
-        .lang-btn:not(.active) { color: #64748b; }
-        .lang-btn:not(.active):hover { color: #94a3b8; }
+        .nav-links a:hover,
+        .nav-links a.active { color: #fff; }
+        .nav.is-solid .nav-links a { color: var(--muted); }
+        .nav.is-solid .nav-links a:hover,
+        .nav.is-solid .nav-links a.active { color: var(--ink); }
 
-        .tech-badge {
+        .nav-actions { display: flex; align-items: center; gap: 0.75rem; }
+
+        .lang-switch {
+            display: inline-flex;
+            border: 1px solid rgba(244,247,245,0.28);
+            background: rgba(20,32,28,0.35);
+            border-radius: var(--radius);
+            overflow: hidden;
+        }
+        .nav.is-solid .lang-switch {
+            border-color: var(--line);
+            background: rgba(255,255,255,0.55);
+        }
+        .lang-switch button {
+            padding: 0.35rem 0.7rem;
+            font-family: "IBM Plex Mono", monospace;
             font-size: 0.75rem;
-            padding: 3px 10px;
-            border-radius: 6px;
-            font-family: 'Fira Code', monospace;
-            background: rgba(99, 102, 241, 0.12);
-            color: #a5b4fc;
+            font-weight: 500;
+            color: rgba(244,247,245,0.7);
+        }
+        .nav.is-solid .lang-switch button { color: var(--muted); }
+        .lang-switch button.active {
+            background: #f4f7f5;
+            color: var(--ink);
+        }
+        .nav.is-solid .lang-switch button.active {
+            background: var(--ink);
+            color: var(--paper);
         }
 
-        /* Scroll reveal */
+        .menu-btn {
+            width: 42px;
+            height: 42px;
+            border: 1px solid rgba(244,247,245,0.28);
+            border-radius: var(--radius);
+            display: grid;
+            place-items: center;
+            background: rgba(20,32,28,0.35);
+        }
+        .nav.is-solid .menu-btn {
+            border-color: var(--line);
+            background: rgba(255,255,255,0.55);
+        }
+        .menu-btn span,
+        .menu-btn span::before,
+        .menu-btn span::after {
+            display: block;
+            width: 16px;
+            height: 1.5px;
+            background: #f4f7f5;
+            position: relative;
+            transition: transform 0.2s;
+        }
+        .nav.is-solid .menu-btn span,
+        .nav.is-solid .menu-btn span::before,
+        .nav.is-solid .menu-btn span::after {
+            background: var(--ink);
+        }
+        .menu-btn span::before,
+        .menu-btn span::after {
+            content: "";
+            position: absolute;
+            left: 0;
+        }
+        .menu-btn span::before { top: -5px; }
+        .menu-btn span::after { top: 5px; }
+
+        .mobile-menu {
+            display: none;
+            border-bottom: 1px solid var(--line);
+            background: rgba(244, 247, 245, 0.98);
+            padding: 0.5rem 0 1rem;
+            color: var(--ink);
+        }
+        .mobile-menu.open { display: block; }
+        .nav:has(.mobile-menu.open) {
+            background: rgba(244, 247, 245, 0.98);
+            color: var(--ink);
+        }
+        .nav:has(.mobile-menu.open) .brand span { color: var(--accent); }
+        .nav:has(.mobile-menu.open) .lang-switch {
+            border-color: var(--line);
+            background: rgba(255,255,255,0.55);
+        }
+        .nav:has(.mobile-menu.open) .lang-switch button { color: var(--muted); }
+        .nav:has(.mobile-menu.open) .lang-switch button.active {
+            background: var(--ink);
+            color: var(--paper);
+        }
+        .nav:has(.mobile-menu.open) .menu-btn {
+            border-color: var(--line);
+            background: rgba(255,255,255,0.55);
+        }
+        .nav:has(.mobile-menu.open) .menu-btn span,
+        .nav:has(.mobile-menu.open) .menu-btn span::before,
+        .nav:has(.mobile-menu.open) .menu-btn span::after {
+            background: var(--ink);
+        }
+        .mobile-menu a {
+            display: block;
+            padding: 0.75rem 0;
+            font-weight: 600;
+            color: var(--ink-soft);
+            border-top: 1px solid var(--line);
+        }
+
+        /* ── Hero ── */
+        .hero {
+            min-height: 100svh;
+            padding-top: var(--nav-h);
+            position: relative;
+            display: grid;
+        }
+        .hero-plane {
+            position: relative;
+            min-height: calc(100svh - var(--nav-h));
+            display: flex;
+            align-items: flex-end;
+            overflow: hidden;
+            background-color: #14201c;
+            background-image:
+                linear-gradient(105deg, rgba(20, 32, 28, 0.94) 0%, rgba(20, 32, 28, 0.82) 38%, rgba(20, 32, 28, 0.45) 62%, rgba(20, 32, 28, 0.2) 100%),
+                url("profile.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: 72% 18%;
+        }
+        .hero-plane::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(244,247,245,0.045) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(244,247,245,0.045) 1px, transparent 1px);
+            background-size: 48px 48px;
+            mask-image: linear-gradient(90deg, black 15%, transparent 70%);
+            pointer-events: none;
+        }
+        @media (prefers-reduced-motion: no-preference) {
+            .hero-plane::after { animation: grid-drift 28s linear infinite; }
+        }
+        @keyframes grid-drift {
+            from { background-position: 0 0, 0 0; }
+            to { background-position: 48px 48px, 48px 0; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            width: min(40rem, calc(100% - 2rem));
+            margin: 0 auto 0 max(1rem, calc((100% - var(--max)) / 2));
+            padding: clamp(2.5rem, 7vw, 5rem) 0;
+            color: #f4f7f5;
+        }
+
+        .hero-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-family: "IBM Plex Mono", monospace;
+            font-size: 0.78rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #b7dcd7;
+            margin-bottom: 1.25rem;
+        }
+        .hero-kicker::before {
+            content: "";
+            width: 1.5rem;
+            height: 1px;
+            background: currentColor;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 5.6rem);
+            color: #fff;
+            margin-bottom: 0.85rem;
+            text-shadow: 0 2px 24px rgba(0,0,0,0.35);
+        }
+        .hero-title {
+            font-size: clamp(1.15rem, 2.4vw, 1.45rem);
+            font-weight: 500;
+            color: #d7e8e3;
+            margin-bottom: 1.1rem;
+        }
+        .hero-lead {
+            font-size: 1.05rem;
+            color: rgba(244, 247, 245, 0.88);
+            max-width: 34rem;
+            margin-bottom: 1.8rem;
+        }
+        .hero-cta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            .hero-kicker,
+            .hero h1,
+            .hero-title,
+            .hero-lead,
+            .hero-cta {
+                animation: rise 0.75s ease both;
+            }
+            .hero h1 { animation-delay: 0.08s; }
+            .hero-title { animation-delay: 0.16s; }
+            .hero-lead { animation-delay: 0.24s; }
+            .hero-cta { animation-delay: 0.32s; }
+        }
+
+        @keyframes rise {
+            from { opacity: 0; transform: translateY(18px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 720px) {
+            .hero-plane {
+                background-position: 65% 12%;
+                background-image:
+                    linear-gradient(180deg, rgba(20, 32, 28, 0.55) 0%, rgba(20, 32, 28, 0.78) 45%, rgba(20, 32, 28, 0.94) 100%),
+                    url("profile.jpg");
+                align-items: flex-end;
+            }
+            .hero-content {
+                margin-left: 1rem;
+                width: calc(100% - 2rem);
+            }
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.85rem 1.25rem;
+            border-radius: var(--radius);
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+        }
+        .btn:hover { transform: translateY(-2px); }
+        .btn-primary {
+            background: var(--accent);
+            color: #fff;
+        }
+        .btn-primary:hover { background: var(--accent-deep); }
+        .btn-ghost {
+            border: 1px solid rgba(244,247,245,0.35);
+            color: #fff;
+            background: rgba(20,32,28,0.25);
+        }
+        .btn-ghost:hover {
+            border-color: #fff;
+            background: rgba(255,255,255,0.08);
+        }
+        .btn-solid {
+            background: var(--ink);
+            color: var(--paper);
+        }
+        .btn-solid:hover { background: var(--accent-deep); }
+        .btn-outline {
+            border: 1px solid var(--line);
+            background: rgba(255,255,255,0.55);
+            color: var(--ink);
+        }
+        .btn-outline:hover { border-color: var(--accent); color: var(--accent-deep); }
+
+        /* ── Sections ── */
+        section { padding: clamp(4rem, 8vw, 6.5rem) 0; }
+
+        .section-head {
+            display: grid;
+            gap: 0.75rem;
+            margin-bottom: clamp(2rem, 4vw, 2.75rem);
+            max-width: 38rem;
+        }
+        .section-head h2 {
+            font-size: clamp(2rem, 4vw, 2.75rem);
+        }
+        .section-head p {
+            color: var(--muted);
+            font-size: 1.05rem;
+        }
+
         .reveal {
             opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.55s ease, transform 0.55s ease;
+            transform: translateY(18px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
         }
         .reveal.visible {
             opacity: 1;
-            transform: translateY(0);
-        }
-        .reveal-stagger > * {
-            opacity: 0;
-            transform: translateY(14px);
-            transition: opacity 0.45s ease, transform 0.45s ease;
-        }
-        .reveal-stagger.visible > *:nth-child(1) { transition-delay: 0.05s; }
-        .reveal-stagger.visible > *:nth-child(2) { transition-delay: 0.1s; }
-        .reveal-stagger.visible > *:nth-child(3) { transition-delay: 0.15s; }
-        .reveal-stagger.visible > *:nth-child(4) { transition-delay: 0.2s; }
-        .reveal-stagger.visible > * {
-            opacity: 1;
-            transform: translateY(0);
+            transform: none;
         }
 
-        /* Subtle hero ambience */
-        .hero-orb {
+        /* About */
+        .about-grid {
+            display: grid;
+            gap: 2.5rem;
+        }
+        @media (min-width: 900px) {
+            .about-grid { grid-template-columns: 1.4fr 1fr; align-items: start; }
+            .nav-links { display: flex; }
+            .menu-btn { display: none; }
+        }
+        .about-copy p + p { margin-top: 1rem; }
+        .about-copy p { color: var(--ink-soft); font-size: 1.06rem; }
+
+        .facts {
+            display: grid;
+            gap: 0;
+            border-top: 1px solid var(--line);
+        }
+        .fact {
+            display: grid;
+            grid-template-columns: 7.5rem 1fr;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--line);
+        }
+        .fact dt {
+            font-family: "IBM Plex Mono", monospace;
+            font-size: 0.78rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--muted);
+            padding-top: 0.15rem;
+        }
+        .fact dd { font-weight: 600; color: var(--ink); }
+        .fact dd small {
+            display: block;
+            margin-top: 0.2rem;
+            font-weight: 400;
+            color: var(--muted);
+        }
+        .status-live { color: var(--accent-deep); }
+
+        /* Skills */
+        .skill-groups {
+            display: grid;
+            gap: 1.5rem;
+        }
+        @media (min-width: 720px) {
+            .skill-groups { grid-template-columns: 1fr 1fr; }
+        }
+        .skill-group h3 {
+            font-family: "IBM Plex Mono", monospace;
+            font-size: 0.78rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 0.85rem;
+        }
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .tag {
+            padding: 0.4rem 0.7rem;
+            border: 1px solid var(--line);
+            background: rgba(255,255,255,0.55);
+            border-radius: var(--radius);
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--ink-soft);
+            transition: border-color 0.2s, transform 0.2s, background 0.2s;
+        }
+        .tag:hover {
+            border-color: var(--accent);
+            background: var(--accent-soft);
+            transform: translateY(-1px);
+        }
+
+        /* Experience */
+        .timeline { display: grid; gap: 0; }
+        .exp {
+            display: grid;
+            gap: 1rem;
+            padding: 1.6rem 0;
+            border-top: 1px solid var(--line);
+        }
+        .exp:last-child { border-bottom: 1px solid var(--line); }
+        @media (min-width: 800px) {
+            .exp { grid-template-columns: 10rem 1fr; gap: 2rem; }
+        }
+        .exp-date {
+            font-family: "IBM Plex Mono", monospace;
+            font-size: 0.82rem;
+            color: var(--muted);
+            padding-top: 0.25rem;
+        }
+        .exp h3 {
+            font-family: Syne, sans-serif;
+            font-size: 1.35rem;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.2rem;
+        }
+        .exp-org {
+            color: var(--accent-deep);
+            font-weight: 700;
+            margin-bottom: 0.85rem;
+        }
+        .exp ul {
+            list-style: none;
+            display: grid;
+            gap: 0.55rem;
+            color: var(--ink-soft);
+        }
+        .exp li {
+            padding-left: 1rem;
+            position: relative;
+        }
+        .exp li::before {
+            content: "";
             position: absolute;
-            border-radius: 50%;
-            filter: blur(72px);
-            pointer-events: none;
-            opacity: 0.35;
-            animation: orb-drift 18s ease-in-out infinite;
+            left: 0;
+            top: 0.65em;
+            width: 0.4rem;
+            height: 1px;
+            background: var(--accent);
         }
-        .hero-orb-1 { width: 280px; height: 280px; background: #6366f1; top: 15%; left: 10%; }
-        .hero-orb-2 { width: 220px; height: 220px; background: #8b5cf6; top: 25%; right: 12%; animation-delay: -6s; }
-        .hero-orb-3 { width: 180px; height: 180px; background: #06b6d4; bottom: 20%; left: 40%; animation-delay: -12s; }
-
-        @keyframes orb-drift {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(12px, -10px) scale(1.05); }
+        .exp-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-top: 1rem;
+        }
+        .tech {
+            font-family: "IBM Plex Mono", monospace;
+            font-size: 0.72rem;
+            padding: 0.25rem 0.5rem;
+            background: var(--accent-soft);
+            color: var(--accent-deep);
+            border-radius: var(--radius);
         }
 
-        @keyframes avatar-float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-5px); }
+        /* Projects — interactive list rows */
+        .project-list { border-top: 1px solid var(--line); }
+        .project {
+            display: grid;
+            gap: 0.85rem;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--line);
+            transition: background 0.2s ease, padding 0.2s ease;
+        }
+        .project:hover {
+            background: rgba(255,255,255,0.45);
+            padding-left: 0.75rem;
+            padding-right: 0.75rem;
+        }
+        @media (min-width: 800px) {
+            .project {
+                grid-template-columns: 7rem 1fr auto;
+                align-items: start;
+                gap: 1.5rem;
+            }
+        }
+        .project-index {
+            font-family: "IBM Plex Mono", monospace;
+            font-size: 0.8rem;
+            color: var(--accent);
+            padding-top: 0.35rem;
+        }
+        .project h3 {
+            font-family: Syne, sans-serif;
+            font-size: 1.4rem;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.4rem;
+        }
+        .project p { color: var(--muted); max-width: 42rem; }
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            margin-top: 0.75rem;
+            font-weight: 700;
+            color: var(--accent-deep);
+        }
+        .project-link svg { transition: transform 0.2s; }
+        .project:hover .project-link svg { transform: translateX(3px); }
+        .project-side {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            justify-content: flex-start;
+        }
+        @media (min-width: 800px) {
+            .project-side { justify-content: flex-end; padding-top: 0.35rem; }
+        }
+
+        /* Contact */
+        .contact-band {
+            background:
+                linear-gradient(135deg, rgba(15,118,110,0.12), rgba(201,120,58,0.08)),
+                rgba(255,255,255,0.55);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            padding: clamp(1.75rem, 4vw, 2.75rem);
+            display: grid;
+            gap: 1.5rem;
+        }
+        @media (min-width: 800px) {
+            .contact-band {
+                grid-template-columns: 1.4fr auto;
+                align-items: end;
+            }
+        }
+        .contact-band h2 { margin-bottom: 0.6rem; }
+        .contact-band p { color: var(--muted); max-width: 32rem; }
+        .contact-actions { display: flex; flex-wrap: wrap; gap: 0.7rem; }
+
+        .contact-links {
+            display: grid;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+        }
+        @media (min-width: 700px) {
+            .contact-links { grid-template-columns: repeat(3, 1fr); }
+        }
+        .contact-links a {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+            padding: 1rem 0;
+            border-top: 1px solid var(--line);
+            transition: color 0.2s;
+        }
+        .contact-links a:hover { color: var(--accent-deep); }
+        .contact-links span {
+            font-family: "IBM Plex Mono", monospace;
+            font-size: 0.75rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+        .contact-links strong { font-size: 1rem; }
+
+        footer {
+            padding: 2rem 0 2.5rem;
+            border-top: 1px solid var(--line);
+            color: var(--muted);
+            font-size: 0.92rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 0.75rem;
         }
 
         @media (prefers-reduced-motion: reduce) {
-            .reveal, .reveal-stagger > * {
-                opacity: 1;
-                transform: none;
-                transition: none;
-            }
-            .fade-in, .fade-in-delay-1, .fade-in-delay-2, .fade-in-delay-3,
-            .bounce, .avatar-ring, .hero-orb, .typing-cursor::after {
+            *, *::before, *::after {
                 animation: none !important;
+                transition: none !important;
             }
-            .skill-tag:hover, .project-card:hover, .contact-link:hover {
-                transform: none;
-            }
+            .reveal { opacity: 1; transform: none; }
         }
     </style>
 </head>
 <body>
-
-<!-- ═══════════════════════════════════ NAVBAR ═══════════════════════════════════ -->
-<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6">
-        <div class="flex items-center justify-between h-16">
-
-            <a href="#hero" class="font-extrabold text-xl gradient-text">BT.</a>
-
-            <div class="hidden md:flex items-center gap-8">
-                <a href="#about"      class="nav-link" data-tr="Hakkımda"  data-en="About">Hakkımda</a>
-                <a href="#skills"     class="nav-link" data-tr="Beceriler" data-en="Skills">Beceriler</a>
-                <a href="#experience" class="nav-link" data-tr="Deneyim"   data-en="Experience">Deneyim</a>
-                <a href="#projects"   class="nav-link" data-tr="Projeler"  data-en="Projects">Projeler</a>
-                <a href="#contact"    class="nav-link" data-tr="İletişim"  data-en="Contact">İletişim</a>
-            </div>
-
-            <div class="flex items-center gap-3">
-                <div class="flex items-center gap-1 glass rounded-lg p-1">
-                    <button id="btn-tr" class="lang-btn active" onclick="setLang('tr')">TR</button>
-                    <button id="btn-en" class="lang-btn"        onclick="setLang('en')">EN</button>
+    <header class="nav" id="navbar">
+        <div class="wrap nav-inner">
+            <a href="#hero" class="brand">Batuhan <span>Taşdemir</span></a>
+            <nav class="nav-links" aria-label="Primary">
+                <a href="#about" data-tr="Hakkımda" data-en="About">Hakkımda</a>
+                <a href="#skills" data-tr="Beceriler" data-en="Skills">Beceriler</a>
+                <a href="#experience" data-tr="Deneyim" data-en="Experience">Deneyim</a>
+                <a href="#projects" data-tr="Projeler" data-en="Projects">Projeler</a>
+                <a href="#contact" data-tr="İletişim" data-en="Contact">İletişim</a>
+            </nav>
+            <div class="nav-actions">
+                <div class="lang-switch" role="group" aria-label="Language">
+                    <button id="btn-tr" class="active" type="button" onclick="setLang('tr')">TR</button>
+                    <button id="btn-en" type="button" onclick="setLang('en')">EN</button>
                 </div>
-                <button id="menu-toggle" class="md:hidden glass rounded-lg p-2 text-slate-400 hover:text-white transition-colors">
-                    <i class="fas fa-bars text-sm"></i>
+                <button class="menu-btn" id="menu-toggle" type="button" aria-label="Menu">
+                    <span></span>
                 </button>
             </div>
         </div>
-    </div>
-
-    <div id="mobile-menu" class="md:hidden hidden glass border-t border-white/5">
-        <div class="px-4 py-4 flex flex-col gap-4">
-            <a href="#about"      class="nav-link" data-tr="Hakkımda"  data-en="About"      onclick="closeMobileMenu()">Hakkımda</a>
-            <a href="#skills"     class="nav-link" data-tr="Beceriler" data-en="Skills"      onclick="closeMobileMenu()">Beceriler</a>
-            <a href="#experience" class="nav-link" data-tr="Deneyim"   data-en="Experience" onclick="closeMobileMenu()">Deneyim</a>
-            <a href="#projects"   class="nav-link" data-tr="Projeler"  data-en="Projects"   onclick="closeMobileMenu()">Projeler</a>
-            <a href="#contact"    class="nav-link" data-tr="İletişim"  data-en="Contact"    onclick="closeMobileMenu()">İletişim</a>
-        </div>
-    </div>
-</nav>
-
-<!-- ═══════════════════════════════════ HERO ════════════════════════════════════ -->
-<section id="hero" class="hero-bg min-h-screen flex flex-col items-center justify-center px-4 pt-16 relative overflow-hidden">
-    <div class="hero-orb hero-orb-1" aria-hidden="true"></div>
-    <div class="hero-orb hero-orb-2" aria-hidden="true"></div>
-    <div class="hero-orb hero-orb-3" aria-hidden="true"></div>
-    <div class="max-w-4xl mx-auto text-center relative z-10">
-
-        <div class="fade-in flex justify-center mb-8">
-            <div class="avatar-ring">
-                <img src="profile.jpg" alt="Batuhan Taşdemir">
+        <div class="mobile-menu" id="mobile-menu">
+            <div class="wrap">
+                <a href="#about" data-tr="Hakkımda" data-en="About" onclick="closeMobileMenu()">Hakkımda</a>
+                <a href="#skills" data-tr="Beceriler" data-en="Skills" onclick="closeMobileMenu()">Beceriler</a>
+                <a href="#experience" data-tr="Deneyim" data-en="Experience" onclick="closeMobileMenu()">Deneyim</a>
+                <a href="#projects" data-tr="Projeler" data-en="Projects" onclick="closeMobileMenu()">Projeler</a>
+                <a href="#contact" data-tr="İletişim" data-en="Contact" onclick="closeMobileMenu()">İletişim</a>
             </div>
         </div>
+    </header>
 
-        <h1 class="fade-in-delay-1 text-5xl sm:text-6xl md:text-7xl font-extrabold text-white mb-4 leading-tight">
-            Batuhan Taşdemir
-        </h1>
-
-        <p class="fade-in-delay-2 text-xl sm:text-2xl font-mono gradient-text mb-6 typing-cursor"
-           data-tr="Bilgisayar Mühendisi" data-en="Computer Engineer">
-            Bilgisayar Mühendisi
-        </p>
-
-        <p class="fade-in-delay-3 text-slate-400 max-w-2xl mx-auto mb-10 text-base leading-relaxed"
-           data-tr="TED Üniversitesi Bilgisayar Mühendisliği 4. sınıf öğrencisi. C#, C++ ve Python'da uygulamalı deneyimle uçtan uca yönetim sistemleri ve full-stack çözümler geliştiriyorum."
-           data-en="Computer Engineering senior at TED University with hands-on experience in C#, C++, and Python. I specialize in building end-to-end management systems and reliable full-stack solutions.">
-            TED Üniversitesi Bilgisayar Mühendisliği 4. sınıf öğrencisi. C#, C++ ve Python'da uygulamalı deneyimle uçtan uca yönetim sistemleri ve full-stack çözümler geliştiriyorum.
-        </p>
-
-        <div class="fade-in-delay-3 flex flex-wrap items-center justify-center gap-4">
-            <a href="#projects"
-               class="px-8 py-3 rounded-xl font-semibold text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-indigo-500/20"
-               style="background: linear-gradient(135deg, #6366f1, #8b5cf6);"
-               data-tr="Projelere Bak" data-en="View Projects">
-                Projelere Bak
-            </a>
-            <a href="Batuhan_Tasdemir_CV_TR.pdf" target="_blank"
-               class="cv-link px-8 py-3 rounded-xl font-semibold glass border border-white/10 text-slate-200 hover:border-indigo-500/50 hover:-translate-y-1 transition-all duration-300"
-               data-tr="CV İndir" data-en="Download CV">
-                CV İndir
-            </a>
-        </div>
-
-        <div class="fade-in-delay-3 flex items-center justify-center gap-6 mt-10">
-            <a href="https://github.com/CaptainBlc" target="_blank"
-               class="text-slate-500 hover:text-white transition-colors duration-200 text-2xl">
-                <i class="fab fa-github"></i>
-            </a>
-            <a href="https://linkedin.com/in/batuhantasdemir03" target="_blank"
-               class="text-slate-500 hover:text-blue-400 transition-colors duration-200 text-2xl">
-                <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="mailto:batuhanmedine2003@hotmail.com"
-               class="text-slate-500 hover:text-indigo-400 transition-colors duration-200 text-2xl">
-                <i class="fas fa-envelope"></i>
-            </a>
-        </div>
-    </div>
-
-    <div class="bounce absolute bottom-8 left-1/2 text-slate-600 text-sm">
-        <i class="fas fa-chevron-down"></i>
-    </div>
-</section>
-
-<div class="section-divider max-w-5xl mx-auto"></div>
-
-<!-- ═══════════════════════════════════ ABOUT ═══════════════════════════════════ -->
-<section id="about" class="py-24 px-4">
-    <div class="max-w-5xl mx-auto reveal">
-        <p class="text-indigo-400 font-mono text-sm mb-2">01.</p>
-        <h2 class="text-3xl font-bold text-white mb-1">
-            <span class="gradient-text" data-tr="Hakkımda" data-en="About Me">Hakkımda</span>
-        </h2>
-        <div class="section-divider mb-10 w-16"></div>
-
-        <div class="grid md:grid-cols-5 gap-10 items-start">
-            <div class="md:col-span-3 space-y-4 text-slate-400 leading-relaxed text-base">
-                <p data-tr="TED Üniversitesi Bilgisayar Mühendisliği 4. sınıf öğrencisiyim. C#, C++ ve Python konularında uygulamalı deneyim sahibiyim; uçtan uca yönetim sistemleri geliştirme ve backend mantığını işlevsel arayüzlerle birleştirme konusunda uzmanlaşıyorum."
-                   data-en="Computer Engineering senior at TED University with hands-on experience in C#, C++, and Python. I specialize in building end-to-end management systems, seamlessly connecting backend logic with functional user interfaces.">
-                    TED Üniversitesi Bilgisayar Mühendisliği 4. sınıf öğrencisiyim. C#, C++ ve Python konularında uygulamalı deneyim sahibiyim; uçtan uca yönetim sistemleri geliştirme ve backend mantığını işlevsel arayüzlerle birleştirme konusunda uzmanlaşıyorum.
-                </p>
-                <p data-tr="OOP, veritabanı yönetimi ve Agile metodolojileri alanında güçlü bir temele sahibim. Güvenilir, ölçeklenebilir full-stack çözümler üretmeye odaklanıyorum."
-                   data-en="Bringing a strong foundation in OOP, database management, and Agile methodologies to develop reliable, full-stack solutions.">
-                    OOP, veritabanı yönetimi ve Agile metodolojileri alanında güçlü bir temele sahibim. Güvenilir, ölçeklenebilir full-stack çözümler üretmeye odaklanıyorum.
-                </p>
-                <p data-tr="Boş zamanlarımda Generative AI ve Büyük Dil Modelleri gelişmelerini yakından takip ediyor, açık kaynak projelere katkıda bulunuyor ve satranç ile strateji oyunlarıyla analitik düşüncemi geliştiriyorum."
-                   data-en="In my free time, I closely follow developments in Generative AI and Large Language Models, contribute to open source projects, and enhance my analytical thinking through chess and strategy games.">
-                    Boş zamanlarımda Generative AI ve Büyük Dil Modelleri gelişmelerini yakından takip ediyor, açık kaynak projelere katkıda bulunuyor ve satranç ile strateji oyunlarıyla analitik düşüncemi geliştiriyorum.
-                </p>
-            </div>
-
-            <div class="md:col-span-2 glass rounded-2xl p-6 space-y-5">
-                <div class="flex items-center gap-3">
-                    <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(99,102,241,0.15)">
-                        <i class="fas fa-map-marker-alt text-indigo-400 text-sm"></i>
-                    </div>
-                    <div>
-                        <p class="text-xs text-slate-500 mb-0.5" data-tr="Konum" data-en="Location">Konum</p>
-                        <p class="text-sm text-slate-300">Ankara, Türkiye</p>
-                    </div>
-                </div>
-                <div class="flex items-center gap-3">
-                    <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(99,102,241,0.15)">
-                        <i class="fas fa-circle-check text-green-400 text-sm"></i>
-                    </div>
-                    <div>
-                        <p class="text-xs text-slate-500 mb-0.5" data-tr="Durum" data-en="Status">Durum</p>
-                        <p class="text-sm text-green-400 font-medium" data-tr="Fırsatlara Açık ✓" data-en="Open to Opportunities ✓">Fırsatlara Açık ✓</p>
-                    </div>
-                </div>
-                <div class="flex items-center gap-3">
-                    <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(99,102,241,0.15)">
-                        <i class="fas fa-graduation-cap text-indigo-400 text-sm"></i>
-                    </div>
-                    <div>
-                        <p class="text-xs text-slate-500 mb-0.5" data-tr="Eğitim" data-en="Education">Eğitim</p>
-                        <p class="text-sm text-slate-300" data-tr="TED Üniversitesi — Bilgisayar Müh." data-en="TED University — Computer Eng.">TED Üniversitesi — Bilgisayar Müh.</p>
-                        <p class="text-xs text-slate-500 mt-0.5" data-tr="2022–2026 (Beklenen) · %50 Burs" data-en="2022–2026 (Expected) · 50% Scholarship">2022–2026 (Beklenen) · %50 Burs</p>
-                    </div>
-                </div>
-                <div class="flex items-center gap-3">
-                    <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(99,102,241,0.15)">
-                        <i class="fas fa-language text-indigo-400 text-sm"></i>
-                    </div>
-                    <div>
-                        <p class="text-xs text-slate-500 mb-0.5" data-tr="Diller" data-en="Languages">Diller</p>
-                        <p class="text-sm text-slate-300" data-tr="Türkçe (Anadil) · İngilizce (C1–C2)" data-en="Turkish (Native) · English (C1–C2)">Türkçe (Anadil) · İngilizce (C1–C2)</p>
+    <main>
+        <section class="hero" id="hero">
+            <div class="hero-plane">
+                <div class="hero-content">
+                    <p class="hero-kicker" data-tr="Portfolyo / 2026" data-en="Portfolio / 2026">Portfolyo / 2026</p>
+                    <h1 class="display">Batuhan Taşdemir</h1>
+                    <p class="hero-title" data-tr="Bilgisayar Mühendisi · Full-Stack Geliştirici" data-en="Computer Engineer · Full-Stack Developer">
+                        Bilgisayar Mühendisi · Full-Stack Geliştirici
+                    </p>
+                    <p class="hero-lead"
+                       data-tr="TED Üniversitesi’nden uçtan uca yönetim sistemleri, mobil arayüzler ve pratik AI araçları üreten bir mühendis."
+                       data-en="A TED University engineer building end-to-end management systems, mobile interfaces, and practical AI tools.">
+                        TED Üniversitesi’nden uçtan uca yönetim sistemleri, mobil arayüzler ve pratik AI araçları üreten bir mühendis.
+                    </p>
+                    <div class="hero-cta">
+                        <a class="btn btn-primary" href="#projects" data-tr="Projelere bak" data-en="View projects">Projelere bak</a>
+                        <a class="btn btn-ghost cv-link" href="Batuhan_Tasdemir_CV_TR.pdf" target="_blank" rel="noopener"
+                           data-tr="CV indir" data-en="Download CV">CV indir</a>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
+        </section>
 
-<div class="section-divider max-w-5xl mx-auto"></div>
-
-<!-- ═══════════════════════════════════ SKILLS ══════════════════════════════════ -->
-<section id="skills" class="py-24 px-4">
-    <div class="max-w-5xl mx-auto reveal">
-        <p class="text-indigo-400 font-mono text-sm mb-2">02.</p>
-        <h2 class="text-3xl font-bold text-white mb-1">
-            <span class="gradient-text" data-tr="Beceriler" data-en="Skills">Beceriler</span>
-        </h2>
-        <div class="section-divider mb-10 w-16"></div>
-
-        <div class="grid sm:grid-cols-2 gap-5 reveal-stagger">
-            <div class="glass rounded-2xl p-6">
-                <h3 class="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-4"
-                    data-tr="Programlama Dilleri" data-en="Programming Languages">Programlama Dilleri</h3>
-                <div class="flex flex-wrap gap-2">
-                    <span class="skill-tag">C#</span>
-                    <span class="skill-tag">Python</span>
-                    <span class="skill-tag">C++</span>
-                    <span class="skill-tag">Java</span>
-                    <span class="skill-tag">SQL</span>
-                    <span class="skill-tag">HTML / CSS</span>
+        <section id="about">
+            <div class="wrap reveal">
+                <div class="section-head">
+                    <p class="eyebrow">01 — About</p>
+                    <h2 class="display" data-tr="Sistemleri baştan sona kuruyorum" data-en="I build systems end to end">
+                        Sistemleri baştan sona kuruyorum
+                    </h2>
                 </div>
-            </div>
-
-            <div class="glass rounded-2xl p-6">
-                <h3 class="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-4"
-                    data-tr="AI & Kütüphaneler" data-en="AI & Libraries">AI & Kütüphaneler</h3>
-                <div class="flex flex-wrap gap-2">
-                    <span class="skill-tag">SpaCy (NLP)</span>
-                    <span class="skill-tag">OpenCV</span>
-                    <span class="skill-tag">.NET</span>
-                    <span class="skill-tag">Unity</span>
-                    <span class="skill-tag">SQLite</span>
-                </div>
-            </div>
-
-            <div class="glass rounded-2xl p-6">
-                <h3 class="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-4"
-                    data-tr="Yazılım Kavramları" data-en="Computer Concepts">Yazılım Kavramları</h3>
-                <div class="flex flex-wrap gap-2">
-                    <span class="skill-tag">OOP</span>
-                    <span class="skill-tag">Veri Yapıları</span>
-                    <span class="skill-tag">Design Patterns</span>
-                    <span class="skill-tag">Agile / Scrum</span>
-                    <span class="skill-tag">UML</span>
-                    <span class="skill-tag">REST API</span>
-                </div>
-            </div>
-
-            <div class="glass rounded-2xl p-6">
-                <h3 class="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-4"
-                    data-tr="Araçlar" data-en="Tools">Araçlar</h3>
-                <div class="flex flex-wrap gap-2">
-                    <span class="skill-tag">Git</span>
-                    <span class="skill-tag">GitHub</span>
-                    <span class="skill-tag">Visual Studio</span>
-                    <span class="skill-tag">JetBrains Rider</span>
-                    <span class="skill-tag">Figma</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<div class="section-divider max-w-5xl mx-auto"></div>
-
-<!-- ═══════════════════════════════════ EXPERIENCE ══════════════════════════════ -->
-<section id="experience" class="py-24 px-4">
-    <div class="max-w-5xl mx-auto reveal">
-        <p class="text-indigo-400 font-mono text-sm mb-2">03.</p>
-        <h2 class="text-3xl font-bold text-white mb-1">
-            <span class="gradient-text" data-tr="Deneyim" data-en="Experience">Deneyim</span>
-        </h2>
-        <div class="section-divider mb-10 w-16"></div>
-
-        <div class="space-y-5 reveal-stagger">
-            <!-- Exp 1: FRANTIC GAMES -->
-            <div class="glass rounded-2xl p-6 flex gap-5">
-                <div class="flex flex-col items-center">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-line flex-1 mt-2"></div>
-                </div>
-                <div class="flex-1 pb-2">
-                    <div class="flex flex-wrap items-start justify-between gap-2 mb-3">
-                        <div>
-                            <h3 class="text-white font-semibold text-base"
-                                data-tr="Oyun Geliştirici Stajyeri" data-en="Game Developer Intern">
-                                Oyun Geliştirici Stajyeri
-                            </h3>
-                            <p class="text-indigo-400 text-sm font-medium">FRANTIC GAMES</p>
+                <div class="about-grid">
+                    <div class="about-copy">
+                        <p data-tr="TED Üniversitesi Bilgisayar Mühendisliği 4. sınıf öğrencisiyim. C#, C++, Python ve Flutter ile backend mantığını işlevsel arayüzlere bağlayan uygulamalar geliştiriyorum."
+                           data-en="I’m a Computer Engineering senior at TED University. I build applications in C#, C++, Python, and Flutter that connect solid backend logic to functional interfaces.">
+                            TED Üniversitesi Bilgisayar Mühendisliği 4. sınıf öğrencisiyim. C#, C++, Python ve Flutter ile backend mantığını işlevsel arayüzlere bağlayan uygulamalar geliştiriyorum.
+                        </p>
+                        <p data-tr="OOP, veritabanı tasarımı ve Agile süreçlerinde güçlüyüm. Amacım: abartısız, bakımı kolay ve gerçek iş akışlarını hızlandıran yazılımlar üretmek."
+                           data-en="I have a strong foundation in OOP, database design, and Agile ways of working. I focus on practical software that is maintainable and speeds up real workflows.">
+                            OOP, veritabanı tasarımı ve Agile süreçlerinde güçlüyüm. Amacım: abartısız, bakımı kolay ve gerçek iş akışlarını hızlandıran yazılımlar üretmek.
+                        </p>
+                        <p data-tr="Boş zamanımda Generative AI gelişmelerini takip ediyor, açık kaynak projeleri inceliyor ve satrançla analitik düşüncemi keskinleştiriyorum."
+                           data-en="Outside class and work, I follow Generative AI, explore open-source projects, and sharpen analytical thinking through chess.">
+                            Boş zamanımda Generative AI gelişmelerini takip ediyor, açık kaynak projeleri inceliyor ve satrançla analitik düşüncemi keskinleştiriyorum.
+                        </p>
+                    </div>
+                    <dl class="facts">
+                        <div class="fact">
+                            <dt data-tr="Konum" data-en="Location">Konum</dt>
+                            <dd>Ankara, Türkiye</dd>
                         </div>
-                        <span class="text-xs text-slate-500 font-mono glass px-3 py-1 rounded-full">
-                            07.2025 – 08.2025
-                        </span>
-                    </div>
-                    <ul class="text-slate-400 text-sm leading-relaxed space-y-1.5 list-none">
-                        <li class="flex gap-2">
-                            <span class="text-indigo-400 mt-0.5 flex-shrink-0">▸</span>
-                            <span data-tr="C# ve Unity kullanarak Scriptable Objects ile modüler ve ölçeklenebilir oyun sistemleri tasarladım."
-                                  data-en="Architected modular systems using C# and Unity with Scriptable Objects for scalable data management and decoupled code structure.">
-                                C# ve Unity kullanarak Scriptable Objects ile modüler ve ölçeklenebilir oyun sistemleri tasarladım.
-                            </span>
-                        </li>
-                        <li class="flex gap-2">
-                            <span class="text-indigo-400 mt-0.5 flex-shrink-0">▸</span>
-                            <span data-tr="Dinamik nesne davranışları için AI pathfinding ve state-machine mantığı geliştirdim."
-                                  data-en="Designed complex AI pathfinding and state-machine logic for dynamic object behaviors.">
-                                Dinamik nesne davranışları için AI pathfinding ve state-machine mantığı geliştirdim.
-                            </span>
-                        </li>
-                        <li class="flex gap-2">
-                            <span class="text-indigo-400 mt-0.5 flex-shrink-0">▸</span>
-                            <span data-tr="Uçtan uca oyun döngüsü mantığı ve UI/HUD sistemleri geliştirdim; sorunsuz kullanıcı deneyimi ve performans optimizasyonu sağladım."
-                                  data-en="Developed end-to-end game loop logic and UI/HUD systems, ensuring seamless user experience and performance optimization.">
-                                Uçtan uca oyun döngüsü mantığı ve UI/HUD sistemleri geliştirdim; sorunsuz kullanıcı deneyimi ve performans optimizasyonu sağladım.
-                            </span>
-                        </li>
-                    </ul>
-                    <div class="flex flex-wrap gap-2 mt-4">
-                        <span class="tech-badge">C#</span>
-                        <span class="tech-badge">Unity</span>
-                        <span class="tech-badge">AI / Pathfinding</span>
-                        <span class="tech-badge">State Machine</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Exp 2: INFODIF -->
-            <div class="glass rounded-2xl p-6 flex gap-5">
-                <div class="flex flex-col items-center">
-                    <div class="timeline-dot"></div>
-                </div>
-                <div class="flex-1">
-                    <div class="flex flex-wrap items-start justify-between gap-2 mb-3">
-                        <div>
-                            <h3 class="text-white font-semibold text-base"
-                                data-tr="Yazılım Programcısı Stajyeri" data-en="Computer Programmer Intern">
-                                Yazılım Programcısı Stajyeri
-                            </h3>
-                            <p class="text-indigo-400 text-sm font-medium">INFODIF Yazılım ve Bilişim Teknolojileri</p>
+                        <div class="fact">
+                            <dt data-tr="Durum" data-en="Status">Durum</dt>
+                            <dd class="status-live" data-tr="Fırsatlara açık" data-en="Open to opportunities">Fırsatlara açık</dd>
                         </div>
-                        <span class="text-xs text-slate-500 font-mono glass px-3 py-1 rounded-full">
-                            06.2024 – 08.2024
-                        </span>
+                        <div class="fact">
+                            <dt data-tr="Eğitim" data-en="Education">Eğitim</dt>
+                            <dd>
+                                <span data-tr="TED Üniversitesi — Bilgisayar Mühendisliği" data-en="TED University — Computer Engineering">TED Üniversitesi — Bilgisayar Mühendisliği</span>
+                                <small data-tr="2022–2026 (beklenen) · %50 burs" data-en="2022–2026 (expected) · 50% scholarship">2022–2026 (beklenen) · %50 burs</small>
+                            </dd>
+                        </div>
+                        <div class="fact">
+                            <dt data-tr="Diller" data-en="Languages">Diller</dt>
+                            <dd data-tr="Türkçe (anadil) · İngilizce (C1–C2)" data-en="Turkish (native) · English (C1–C2)">Türkçe (anadil) · İngilizce (C1–C2)</dd>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <div class="wrap reveal">
+                <div class="section-head">
+                    <p class="eyebrow">02 — Skills</p>
+                    <h2 class="display" data-tr="Araç çantam" data-en="My toolkit">Araç çantam</h2>
+                    <p data-tr="Günlük işimde kullandığım diller, kütüphaneler ve yöntemler."
+                       data-en="Languages, libraries, and methods I use in day-to-day work.">
+                        Günlük işimde kullandığım diller, kütüphaneler ve yöntemler.
+                    </p>
+                </div>
+                <div class="skill-groups">
+                    <div class="skill-group">
+                        <h3 data-tr="Programlama" data-en="Programming">Programlama</h3>
+                        <div class="tags">
+                            <span class="tag">C#</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">C++</span>
+                            <span class="tag">Java</span>
+                            <span class="tag">Dart</span>
+                            <span class="tag">SQL</span>
+                            <span class="tag">HTML / CSS</span>
+                        </div>
                     </div>
-                    <ul class="text-slate-400 text-sm leading-relaxed space-y-1.5 list-none">
-                        <li class="flex gap-2">
-                            <span class="text-indigo-400 mt-0.5 flex-shrink-0">▸</span>
-                            <span data-tr="Python ve C++ kullanarak gerçek zamanlı nesne tespiti ve veri işleme için yüksek performanslı backend modüller geliştirdim."
-                                  data-en="Developed high-performance back-end modules using Python and C++ for real-time object detection and data processing.">
-                                Python ve C++ kullanarak gerçek zamanlı nesne tespiti ve veri işleme için yüksek performanslı backend modüller geliştirdim.
-                            </span>
-                        </li>
-                        <li class="flex gap-2">
-                            <span class="text-indigo-400 mt-0.5 flex-shrink-0">▸</span>
-                            <span data-tr="SpaCy kullanarak yapılandırılmamış metin verilerini otomatik sınıflandıran özel bir NER aracı geliştirdim."
-                                  data-en="Built a custom Named Entity Recognition (NER) tool using SpaCy to automate and classify unstructured text data.">
-                                SpaCy kullanarak yapılandırılmamış metin verilerini otomatik sınıflandıran özel bir NER aracı geliştirdim.
-                            </span>
-                        </li>
-                        <li class="flex gap-2">
-                            <span class="text-indigo-400 mt-0.5 flex-shrink-0">▸</span>
-                            <span data-tr="C++ ile algoritmik karmaşıklık ve bellek yönetimine odaklanarak satranç/sudoku çözücüleri tasarladım."
-                                  data-en="Engineered optimized logical solvers (Chess/Sudoku) using C++, focusing on algorithmic complexity and memory management.">
-                                C++ ile algoritmik karmaşıklık ve bellek yönetimine odaklanarak satranç/sudoku çözücüleri tasarladım.
-                            </span>
-                        </li>
-                    </ul>
-                    <div class="flex flex-wrap gap-2 mt-4">
-                        <span class="tech-badge">Python</span>
-                        <span class="tech-badge">C++</span>
-                        <span class="tech-badge">SpaCy</span>
-                        <span class="tech-badge">OpenCV</span>
-                        <span class="tech-badge">NLP</span>
+                    <div class="skill-group">
+                        <h3 data-tr="Framework & AI" data-en="Frameworks & AI">Framework & AI</h3>
+                        <div class="tags">
+                            <span class="tag">.NET</span>
+                            <span class="tag">Unity</span>
+                            <span class="tag">Flutter</span>
+                            <span class="tag">SpaCy</span>
+                            <span class="tag">OpenCV</span>
+                            <span class="tag">SQLite</span>
+                        </div>
+                    </div>
+                    <div class="skill-group">
+                        <h3 data-tr="Yazılım kavramları" data-en="Engineering concepts">Yazılım kavramları</h3>
+                        <div class="tags">
+                            <span class="tag">OOP</span>
+                            <span class="tag">Design Patterns</span>
+                            <span class="tag">REST API</span>
+                            <span class="tag">Agile / Scrum</span>
+                            <span class="tag">UML</span>
+                            <span class="tag">RDBMS</span>
+                        </div>
+                    </div>
+                    <div class="skill-group">
+                        <h3 data-tr="Araçlar" data-en="Tools">Araçlar</h3>
+                        <div class="tags">
+                            <span class="tag">Git</span>
+                            <span class="tag">GitHub</span>
+                            <span class="tag">Visual Studio</span>
+                            <span class="tag">JetBrains Rider</span>
+                            <span class="tag">Figma</span>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
+        </section>
 
-<div class="section-divider max-w-5xl mx-auto"></div>
+        <section id="experience">
+            <div class="wrap reveal">
+                <div class="section-head">
+                    <p class="eyebrow">03 — Experience</p>
+                    <h2 class="display" data-tr="Deneyim" data-en="Experience">Deneyim</h2>
+                    <p data-tr="Stajlarda oyun sistemleri, bilgisayarlı görü ve NLP üzerine çalıştım."
+                       data-en="Internships focused on game systems, computer vision, and NLP.">
+                        Stajlarda oyun sistemleri, bilgisayarlı görü ve NLP üzerine çalıştım.
+                    </p>
+                </div>
+                <div class="timeline">
+                    <article class="exp">
+                        <p class="exp-date">07.2025 – 08.2025</p>
+                        <div>
+                            <h3 data-tr="Oyun Geliştirici Stajyeri" data-en="Game Developer Intern">Oyun Geliştirici Stajyeri</h3>
+                            <p class="exp-org">FRANTIC GAMES</p>
+                            <ul>
+                                <li data-tr="C# ve Unity ile Scriptable Objects kullanarak modüler, ölçeklenebilir oyun sistemleri tasarladım."
+                                    data-en="Architected modular Unity systems in C# with Scriptable Objects for scalable, decoupled gameplay data.">
+                                    C# ve Unity ile Scriptable Objects kullanarak modüler, ölçeklenebilir oyun sistemleri tasarladım.
+                                </li>
+                                <li data-tr="Dinamik nesne davranışları için AI pathfinding ve state-machine mantığı geliştirdim."
+                                    data-en="Implemented AI pathfinding and state-machine logic for dynamic in-game behaviors.">
+                                    Dinamik nesne davranışları için AI pathfinding ve state-machine mantığı geliştirdim.
+                                </li>
+                                <li data-tr="Oyun döngüsü ve UI/HUD sistemlerini kullanıcı deneyimi ve performans odaklı tamamladım."
+                                    data-en="Delivered game-loop and UI/HUD features with a focus on UX polish and performance.">
+                                    Oyun döngüsü ve UI/HUD sistemlerini kullanıcı deneyimi ve performans odaklı tamamladım.
+                                </li>
+                            </ul>
+                            <div class="exp-tech">
+                                <span class="tech">C#</span>
+                                <span class="tech">Unity</span>
+                                <span class="tech">AI / Pathfinding</span>
+                                <span class="tech">State Machine</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="exp">
+                        <p class="exp-date">06.2024 – 08.2024</p>
+                        <div>
+                            <h3 data-tr="Yazılım Programcısı Stajyeri" data-en="Software Programmer Intern">Yazılım Programcısı Stajyeri</h3>
+                            <p class="exp-org">INFODIF Yazılım ve Bilişim Teknolojileri</p>
+                            <ul>
+                                <li data-tr="Python ve C++ ile gerçek zamanlı nesne tespiti ve veri işleme için backend modüller geliştirdim."
+                                    data-en="Developed Python/C++ backend modules for real-time object detection and data processing.">
+                                    Python ve C++ ile gerçek zamanlı nesne tespiti ve veri işleme için backend modüller geliştirdim.
+                                </li>
+                                <li data-tr="SpaCy kullanarak yapılandırılmamış metinden varlık çıkaran özel bir NER aracı oluşturdum."
+                                    data-en="Built a SpaCy NER pipeline to extract and classify entities from unstructured text.">
+                                    SpaCy kullanarak yapılandırılmamış metinden varlık çıkaran özel bir NER aracı oluşturdum.
+                                </li>
+                                <li data-tr="C++ ile satranç/sudoku çözücüleri tasarlayarak algoritmik karmaşıklık ve bellek yönetimine odaklandım."
+                                    data-en="Engineered C++ solvers for chess/sudoku with attention to algorithmic complexity and memory use.">
+                                    C++ ile satranç/sudoku çözücüleri tasarlayarak algoritmik karmaşıklık ve bellek yönetimine odaklandım.
+                                </li>
+                            </ul>
+                            <div class="exp-tech">
+                                <span class="tech">Python</span>
+                                <span class="tech">C++</span>
+                                <span class="tech">SpaCy</span>
+                                <span class="tech">OpenCV</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
 
-<!-- ═══════════════════════════════════ PROJECTS ════════════════════════════════ -->
-<section id="projects" class="py-24 px-4">
-    <div class="max-w-5xl mx-auto reveal">
-        <p class="text-indigo-400 font-mono text-sm mb-2">04.</p>
-        <h2 class="text-3xl font-bold text-white mb-1">
-            <span class="gradient-text" data-tr="Projeler" data-en="Projects">Projeler</span>
-        </h2>
-        <div class="section-divider mb-10 w-16"></div>
+        <section id="projects">
+            <div class="wrap reveal">
+                <div class="section-head">
+                    <p class="eyebrow">04 — Projects</p>
+                    <h2 class="display" data-tr="Seçili çalışmalar" data-en="Selected work">Seçili çalışmalar</h2>
+                    <p data-tr="Masaüstü operasyon panellerinden mobil kataloglara ve AI proje yüzeylerine."
+                       data-en="From desktop operations panels to mobile catalogs and AI project surfaces.">
+                        Masaüstü operasyon panellerinden mobil kataloglara ve AI proje yüzeylerine.
+                    </p>
+                </div>
+                <div class="project-list">
+                    <article class="project">
+                        <p class="project-index">01</p>
+                        <div>
+                            <h3>Leta-Takip</h3>
+                            <p data-tr="Özel eğitim ve danışmanlık kurumları için seans planlama, borç/ödeme, kasa ve personel hakedişini tek yerde toplayan Python masaüstü paneli."
+                               data-en="A Python desktop operations panel for counseling practices—session scheduling, billing, cash ledger, and staff payouts in one place.">
+                                Özel eğitim ve danışmanlık kurumları için seans planlama, borç/ödeme, kasa ve personel hakedişini tek yerde toplayan Python masaüstü paneli.
+                            </p>
+                            <a class="project-link" href="https://github.com/CaptainBlc/Leta-Takip" target="_blank" rel="noopener">
+                                <span data-tr="GitHub’da aç" data-en="Open on GitHub">GitHub’da aç</span>
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg>
+                            </a>
+                        </div>
+                        <div class="project-side">
+                            <span class="tech">Python</span>
+                            <span class="tech">SQLite</span>
+                            <span class="tech">Tkinter</span>
+                        </div>
+                    </article>
 
-        <div class="grid sm:grid-cols-2 gap-6 reveal-stagger">
+                    <article class="project">
+                        <p class="project-index">02</p>
+                        <div>
+                            <h3>OptiLumen</h3>
+                            <p data-tr="TED Üniversitesi CMPE 491 kapsamında hibrit AI görüntü iyileştirme sistemi için HTML/CSS/JS pazarlama sitesi ve proje yüzeyi."
+                               data-en="Marketing site and project surface for a hybrid AI image-enhancement system (TED University CMPE 491), built with HTML/CSS/JS.">
+                                TED Üniversitesi CMPE 491 kapsamında hibrit AI görüntü iyileştirme sistemi için HTML/CSS/JS pazarlama sitesi ve proje yüzeyi.
+                            </p>
+                            <a class="project-link" href="https://github.com/CaptainBlc/optilumens" target="_blank" rel="noopener">
+                                <span data-tr="GitHub’da aç" data-en="Open on GitHub">GitHub’da aç</span>
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg>
+                            </a>
+                        </div>
+                        <div class="project-side">
+                            <span class="tech">JavaScript</span>
+                            <span class="tech">HTML/CSS</span>
+                            <span class="tech">AI</span>
+                        </div>
+                    </article>
 
-            <!-- Project 1: Leta-Takip -->
-            <div class="project-card glass rounded-2xl p-6 flex flex-col gap-4">
-                <div class="flex items-start justify-between">
-                    <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background:rgba(99,102,241,0.2)">
-                        <i class="fas fa-desktop text-indigo-400"></i>
+                    <article class="project">
+                        <p class="project-index">03</p>
+                        <div>
+                            <h3>NovaStore</h3>
+                            <p data-tr="Flutter ile geliştirilmiş mini e-ticaret katalog uygulaması: giriş, kategori filtreli ürün ızgarası, detay akışları ve merkezi tema yönetimi."
+                               data-en="Flutter mini e-commerce catalog with login, filtered product grid, detail flows, and centralized theming—built as an internship capstone module.">
+                                Flutter ile geliştirilmiş mini e-ticaret katalog uygulaması: giriş, kategori filtreli ürün ızgarası, detay akışları ve merkezi tema yönetimi.
+                            </p>
+                            <a class="project-link" href="https://github.com/CaptainBlc/NovaStoreMobil" target="_blank" rel="noopener">
+                                <span data-tr="GitHub’da aç" data-en="Open on GitHub">GitHub’da aç</span>
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg>
+                            </a>
+                        </div>
+                        <div class="project-side">
+                            <span class="tech">Flutter</span>
+                            <span class="tech">Dart</span>
+                            <span class="tech">UI</span>
+                        </div>
+                    </article>
+
+                    <article class="project">
+                        <p class="project-index">04</p>
+                        <div>
+                            <h3 data-tr="NLP NER Aracı" data-en="NLP NER Tool">NLP NER Aracı</h3>
+                            <p data-tr="SpaCy ile ham metinden varlık çıkaran ve sınıflandıran NLP aracı; büyük metin kümelerini otomatik kategorilere ayırır."
+                               data-en="A SpaCy-based NER workflow that extracts and classifies entities from raw text, replacing slow manual categorization.">
+                                SpaCy ile ham metinden varlık çıkaran ve sınıflandıran NLP aracı; büyük metin kümelerini otomatik kategorilere ayırır.
+                            </p>
+                            <a class="project-link" href="https://github.com/CaptainBlc/named_Entity" target="_blank" rel="noopener">
+                                <span data-tr="GitHub’da aç" data-en="Open on GitHub">GitHub’da aç</span>
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg>
+                            </a>
+                        </div>
+                        <div class="project-side">
+                            <span class="tech">Python</span>
+                            <span class="tech">SpaCy</span>
+                            <span class="tech">NLP</span>
+                        </div>
+                    </article>
+                </div>
+                <p style="margin-top: 1.5rem;">
+                    <a class="project-link" href="https://github.com/CaptainBlc" target="_blank" rel="noopener">
+                        <span data-tr="Tüm repolar → GitHub" data-en="All repositories → GitHub">Tüm repolar → GitHub</span>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg>
+                    </a>
+                </p>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="wrap reveal">
+                <div class="contact-band">
+                    <div>
+                        <p class="eyebrow">05 — Contact</p>
+                        <h2 class="display" data-tr="Birlikte bir şey kuralım" data-en="Let’s build something">
+                            Birlikte bir şey kuralım
+                        </h2>
+                        <p data-tr="Staj, tam zamanlı veya proje iş birliği için her zaman yanıt veririm."
+                           data-en="I always reply to internship, full-time, or collaboration notes.">
+                            Staj, tam zamanlı veya proje iş birliği için her zaman yanıt veririm.
+                        </p>
                     </div>
-                    <a href="https://github.com/CaptainBlc/Leta-Takip" target="_blank"
-                       class="text-slate-500 hover:text-white transition-colors text-lg">
-                        <i class="fab fa-github"></i>
+                    <div class="contact-actions">
+                        <a class="btn btn-solid" href="mailto:batuhanmedine2003@hotmail.com" data-tr="E-posta gönder" data-en="Send email">E-posta gönder</a>
+                        <a class="btn btn-outline cv-link" href="Batuhan_Tasdemir_CV_TR.pdf" target="_blank" rel="noopener" data-tr="CV indir" data-en="Download CV">CV indir</a>
+                    </div>
+                </div>
+                <div class="contact-links">
+                    <a href="https://github.com/CaptainBlc" target="_blank" rel="noopener">
+                        <span>GitHub</span>
+                        <strong>@CaptainBlc</strong>
+                    </a>
+                    <a href="https://linkedin.com/in/batuhantasdemir03" target="_blank" rel="noopener">
+                        <span>LinkedIn</span>
+                        <strong>batuhantasdemir03</strong>
+                    </a>
+                    <a href="mailto:batuhanmedine2003@hotmail.com">
+                        <span>Email</span>
+                        <strong>batuhanmedine2003@hotmail.com</strong>
                     </a>
                 </div>
-                <div>
-                    <h3 class="text-white font-semibold text-base mb-1">Leta-Takip Sistemi</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed"
-                       data-tr="Bir işletmenin müşteri seanslarını ve finansal kayıtlarını verimli şekilde takip etmesini sağlayan masaüstü uygulama. SQLite veritabanı ve Python ile otomatik randevu ve ödeme raporları."
-                       data-en="A complete desktop application to help a business track client sessions and manage financial records. Secure SQLite database, Python automation for appointment schedules and payment reports.">
-                        Bir işletmenin müşteri seanslarını ve finansal kayıtlarını verimli şekilde takip etmesini sağlayan masaüstü uygulama. SQLite veritabanı ve Python ile otomatik randevu ve ödeme raporları.
-                    </p>
-                </div>
-                <div class="flex flex-wrap gap-2 mt-auto">
-                    <span class="tech-badge">Python</span>
-                    <span class="tech-badge">SQLite</span>
-                    <span class="tech-badge">Desktop App</span>
-                </div>
             </div>
+        </section>
+    </main>
 
-            <!-- Project 2: NER Tool -->
-            <div class="project-card glass rounded-2xl p-6 flex flex-col gap-4">
-                <div class="flex items-start justify-between">
-                    <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background:rgba(6,182,212,0.15)">
-                        <i class="fas fa-brain text-cyan-400"></i>
-                    </div>
-                </div>
-                <div>
-                    <h3 class="text-white font-semibold text-base mb-1"
-                        data-tr="NLP Tabanlı NER Aracı" data-en="NLP-Based NER Tool">
-                        NLP Tabanlı NER Aracı
-                    </h3>
-                    <p class="text-slate-400 text-sm leading-relaxed"
-                       data-tr="SpaCy kullanarak ham metinden yararlı bilgileri otomatik çıkaran ve sınıflandıran NLP aracı. Büyük miktardaki veriyi hızla kategorize etmek için AI modelleri eğitildi."
-                       data-en="A custom NLP tool using SpaCy to automatically extract and organize information from raw text. Trained AI models to recognize key entities and categorize large amounts of data at scale.">
-                        SpaCy kullanarak ham metinden yararlı bilgileri otomatik çıkaran ve sınıflandıran NLP aracı. Büyük miktardaki veriyi hızla kategorize etmek için AI modelleri eğitildi.
-                    </p>
-                </div>
-                <div class="flex flex-wrap gap-2 mt-auto">
-                    <span class="tech-badge">Python</span>
-                    <span class="tech-badge">SpaCy</span>
-                    <span class="tech-badge">NLP / AI</span>
-                </div>
-            </div>
-
-            <!-- Project 3: Algorithmic Solvers -->
-            <div class="project-card glass rounded-2xl p-6 flex flex-col gap-4">
-                <div class="flex items-start justify-between">
-                    <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background:rgba(245,158,11,0.12)">
-                        <i class="fas fa-chess text-amber-400"></i>
-                    </div>
-                </div>
-                <div>
-                    <h3 class="text-white font-semibold text-base mb-1"
-                        data-tr="Yüksek Performanslı Algoritmik Çözücüler" data-en="High-Performance Algorithmic Solvers">
-                        Yüksek Performanslı Algoritmik Çözücüler
-                    </h3>
-                    <p class="text-slate-400 text-sm leading-relaxed"
-                       data-tr="C++ ile satranç ve sudoku gibi karmaşık mantık bulmacalarını hızlıca çözen programlar. Bellek optimizasyonu ve akıllı arama yöntemlerine odaklanıldı."
-                       data-en="Highly efficient C++ programs to quickly solve complex logic puzzles like Chess and Sudoku, with a heavy focus on memory optimization and smart search methods for high-speed performance.">
-                        C++ ile satranç ve sudoku gibi karmaşık mantık bulmacalarını hızlıca çözen programlar. Bellek optimizasyonu ve akıllı arama yöntemlerine odaklanıldı.
-                    </p>
-                </div>
-                <div class="flex flex-wrap gap-2 mt-auto">
-                    <span class="tech-badge">C++</span>
-                    <span class="tech-badge">Algoritmalar</span>
-                    <span class="tech-badge">Bellek Optimizasyonu</span>
-                </div>
-            </div>
-
-            <!-- Project 4: Unity Modular System -->
-            <div class="project-card glass rounded-2xl p-6 flex flex-col gap-4">
-                <div class="flex items-start justify-between">
-                    <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background:rgba(139,92,246,0.15)">
-                        <i class="fas fa-cubes text-violet-400"></i>
-                    </div>
-                </div>
-                <div>
-                    <h3 class="text-white font-semibold text-base mb-1"
-                        data-tr="Modüler Oyun Sistemi (C# / Unity)" data-en="Modular Game System (C# / Unity)">
-                        Modüler Oyun Sistemi (C# / Unity)
-                    </h3>
-                    <p class="text-slate-400 text-sm leading-relaxed"
-                       data-tr="Unity'de C# ile yönetimi ve genişletilmesi kolay modüler bir oyun sistemi. Scriptable Objects ile oyun verilerini koddan ayırarak AI karakterlerin pathfinding ve state machine mantığı uygulandı."
-                       data-en="A highly organized game system in Unity (C#) using Scriptable Objects to separate data from core code. Implemented AI characters with pathfinding and state machines, applying clean code principles.">
-                        Unity'de C# ile yönetimi ve genişletilmesi kolay modüler bir oyun sistemi. Scriptable Objects ile oyun verilerini koddan ayırarak AI karakterlerin pathfinding ve state machine mantığı uygulandı.
-                    </p>
-                </div>
-                <div class="flex flex-wrap gap-2 mt-auto">
-                    <span class="tech-badge">C#</span>
-                    <span class="tech-badge">Unity</span>
-                    <span class="tech-badge">Design Patterns</span>
-                    <span class="tech-badge">AI</span>
-                </div>
-            </div>
-
+    <footer>
+        <div class="wrap" style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:0.75rem;width:100%">
+            <p data-tr="Batuhan Taşdemir tarafından tasarlandı" data-en="Designed by Batuhan Taşdemir">Batuhan Taşdemir tarafından tasarlandı</p>
+            <p id="footer-year">2026</p>
         </div>
+    </footer>
 
-        <div class="text-center mt-10">
-            <a href="https://github.com/CaptainBlc" target="_blank"
-               class="inline-flex items-center gap-2 text-slate-400 hover:text-white transition-colors group text-sm">
-                <span data-tr="Tüm projeleri GitHub'da gör" data-en="View all projects on GitHub">
-                    Tüm projeleri GitHub'da gör
-                </span>
-                <i class="fab fa-github group-hover:translate-x-1 transition-transform"></i>
-            </a>
-        </div>
-    </div>
-</section>
+    <script>
+        let currentLang = 'tr';
+        const CV_FILES = {
+            tr: 'Batuhan_Tasdemir_CV_TR.pdf',
+            en: 'Batuhan_Tasdemir_CV_ENG.pdf'
+        };
 
-<div class="section-divider max-w-5xl mx-auto"></div>
+        function setLang(lang) {
+            currentLang = lang;
+            document.documentElement.lang = lang;
+            document.getElementById('btn-tr').classList.toggle('active', lang === 'tr');
+            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
 
-<!-- ═══════════════════════════════════ CONTACT ═════════════════════════════════ -->
-<section id="contact" class="py-24 px-4">
-    <div class="max-w-5xl mx-auto reveal">
-        <p class="text-indigo-400 font-mono text-sm mb-2">05.</p>
-        <h2 class="text-3xl font-bold text-white mb-1">
-            <span class="gradient-text" data-tr="İletişim" data-en="Contact">İletişim</span>
-        </h2>
-        <div class="section-divider mb-10 w-16"></div>
+            document.querySelectorAll('[data-tr]').forEach(el => {
+                const val = lang === 'tr' ? el.dataset.tr : el.dataset.en;
+                if (val !== undefined) el.textContent = val;
+            });
 
-        <div class="glass rounded-2xl p-8 sm:p-14 text-center mb-8">
-            <p class="text-slate-400 text-lg mb-8 max-w-lg mx-auto"
-               data-tr="Bir proje fikrin mi var, iş birliği yapmak mı istiyorsun ya da sadece merhaba mı demek istiyorsun? Her zaman yanıt veririm."
-               data-en="Have a project idea, want to collaborate, or just want to say hello? I always reply.">
-                Bir proje fikrin mi var, iş birliği yapmak mı istiyorsun ya da sadece merhaba mı demek istiyorsun? Her zaman yanıt veririm.
-            </p>
-            <a href="mailto:batuhanmedine2003@hotmail.com"
-               class="inline-flex items-center gap-3 px-10 py-4 rounded-xl font-semibold text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/20 text-base"
-               style="background: linear-gradient(135deg, #6366f1, #8b5cf6);">
-                <i class="fas fa-envelope"></i>
-                <span data-tr="E-posta Gönder" data-en="Send Email">E-posta Gönder</span>
-            </a>
-        </div>
+            document.querySelectorAll('.cv-link').forEach(el => {
+                el.href = CV_FILES[lang];
+            });
 
-        <div class="grid sm:grid-cols-3 gap-4">
-            <a href="https://github.com/CaptainBlc" target="_blank" class="contact-link rounded-xl p-4 flex items-center gap-4">
-                <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(255,255,255,0.06)">
-                    <i class="fab fa-github text-white text-lg"></i>
-                </div>
-                <div>
-                    <p class="text-xs text-slate-500">GitHub</p>
-                    <p class="text-sm text-slate-300 font-medium">@CaptainBlc</p>
-                </div>
-            </a>
-
-            <a href="https://linkedin.com/in/batuhantasdemir03" target="_blank" class="contact-link rounded-xl p-4 flex items-center gap-4">
-                <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(37,99,235,0.12)">
-                    <i class="fab fa-linkedin text-blue-400 text-lg"></i>
-                </div>
-                <div>
-                    <p class="text-xs text-slate-500">LinkedIn</p>
-                    <p class="text-sm text-slate-300 font-medium">batuhantasdemir03</p>
-                </div>
-            </a>
-
-            <a href="Batuhan_Tasdemir_CV_TR.pdf" target="_blank" class="cv-link contact-link rounded-xl p-4 flex items-center gap-4">
-                <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(239,68,68,0.1)">
-                    <i class="fas fa-file-pdf text-red-400 text-lg"></i>
-                </div>
-                <div>
-                    <p class="text-xs text-slate-500" data-tr="CV / Özgeçmiş" data-en="CV / Resume">CV / Özgeçmiş</p>
-                    <p class="text-sm text-slate-300 font-medium" data-tr="PDF İndir" data-en="Download PDF">PDF İndir</p>
-                </div>
-            </a>
-        </div>
-    </div>
-</section>
-
-<!-- ═══════════════════════════════════ FOOTER ══════════════════════════════════ -->
-<footer class="py-8 px-4 text-center border-t border-white/5">
-    <p class="text-slate-600 text-sm">
-        <span data-tr="Batuhan Taşdemir tarafından yapıldı" data-en="Made by Batuhan Taşdemir">
-            Batuhan Taşdemir tarafından yapıldı
-        </span>
-        &nbsp;·&nbsp; <span id="footer-year">2026</span>
-    </p>
-</footer>
-
-<!-- ═══════════════════════════════════ JAVASCRIPT ══════════════════════════════ -->
-<script>
-    // ── Language ─────────────────────────────────────────────────────────────────
-    let currentLang = 'tr';
-
-    const CV_FILES = { tr: 'Batuhan_Tasdemir_CV_TR.pdf', en: 'Batuhan_Tasdemir_CV_ENG.pdf' };
-
-    function setLang(lang) {
-        currentLang = lang;
-        document.documentElement.lang = lang;
-
-        document.getElementById('btn-tr').classList.toggle('active', lang === 'tr');
-        document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-
-        document.querySelectorAll('[data-tr]').forEach(el => {
-            const val = lang === 'tr' ? el.dataset.tr : el.dataset.en;
-            if (val !== undefined) el.textContent = val;
-        });
-
-        document.querySelectorAll('.cv-link').forEach(el => {
-            el.href = CV_FILES[lang];
-        });
-    }
-
-    // ── Navbar scroll ─────────────────────────────────────────────────────────────
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 20) {
-            navbar.style.background      = 'rgba(10,10,15,0.92)';
-            navbar.style.backdropFilter  = 'blur(20px)';
-            navbar.style.borderBottom    = '1px solid rgba(255,255,255,0.05)';
-        } else {
-            navbar.style.background      = 'transparent';
-            navbar.style.backdropFilter  = 'none';
-            navbar.style.borderBottom    = 'none';
+            document.title = lang === 'tr'
+                ? 'Batuhan Taşdemir — Bilgisayar Mühendisi'
+                : 'Batuhan Taşdemir — Computer Engineer';
         }
-    });
 
-    // ── Mobile menu ───────────────────────────────────────────────────────────────
-    document.getElementById('menu-toggle').addEventListener('click', () => {
-        document.getElementById('mobile-menu').classList.toggle('hidden');
-    });
-    function closeMobileMenu() {
-        document.getElementById('mobile-menu').classList.add('hidden');
-    }
+        const navbar = document.getElementById('navbar');
+        const onScroll = () => {
+            navbar.classList.toggle('is-solid', window.scrollY > 12);
+        };
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
 
-    // ── Active nav highlight ──────────────────────────────────────────────────────
-    const sections  = document.querySelectorAll('section[id]');
-    const navLinks  = document.querySelectorAll('nav .nav-link');
-
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                navLinks.forEach(link => {
-                    const isActive = link.getAttribute('href') === '#' + entry.target.id;
-                    link.classList.toggle('active-nav', isActive);
-                });
-            }
+        document.getElementById('menu-toggle').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('open');
         });
-    }, { rootMargin: '-40% 0px -55% 0px' });
+        function closeMobileMenu() {
+            document.getElementById('mobile-menu').classList.remove('open');
+        }
 
-    sections.forEach(s => observer.observe(s));
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-links a');
+        const sectionObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                navLinks.forEach(link => {
+                    link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
+                });
+            });
+        }, { rootMargin: '-40% 0px -55% 0px' });
+        sections.forEach(s => sectionObserver.observe(s));
 
-    // ── Scroll reveal ─────────────────────────────────────────────────────────────
-    const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
+        const revealObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
                 entry.target.classList.add('visible');
                 revealObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.12, rootMargin: '0px 0px -32px 0px' });
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -24px 0px' });
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-    document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => revealObserver.observe(el));
-
-    document.getElementById('footer-year').textContent = new Date().getFullYear();
-</script>
-
+        document.getElementById('footer-year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
