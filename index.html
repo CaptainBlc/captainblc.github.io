@@ -5,16 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Batuhan Taşdemir — Bilgisayar Mühendisi</title>
 
-    <meta name="description" content="Batuhan Taşdemir — TED Üniversitesi Bilgisayar Mühendisliği. Full-stack geliştirici portfolyosu: Leta-Takip, OptiLumen, NovaStore ve daha fazlası.">
+    <meta name="description" content="Batuhan Taşdemir — TED Üniversitesi Bilgisayar Mühendisliği mezunu. Software engineer portfolyosu: Leta-Takip, OptiLumen ve daha fazlası.">
     <link rel="canonical" href="https://captainblc.github.io/">
     <meta property="og:title" content="Batuhan Taşdemir — Bilgisayar Mühendisi">
-    <meta property="og:description" content="Uçtan uca sistemler ve pratik full-stack çözümler geliştiren bilgisayar mühendisi.">
+    <meta property="og:description" content="TED Üniversitesi Bilgisayar Mühendisliği mezunu · Software Engineer.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://captainblc.github.io/">
     <meta property="og:image" content="https://captainblc.github.io/profile.jpg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Batuhan Taşdemir — Bilgisayar Mühendisi">
-    <meta name="twitter:description" content="Uçtan uca sistemler ve pratik full-stack çözümler geliştiren bilgisayar mühendisi.">
+    <meta name="twitter:description" content="TED Üniversitesi Bilgisayar Mühendisliği mezunu · Software Engineer.">
     <meta name="twitter:image" content="https://captainblc.github.io/profile.jpg">
 
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230F766E'/><text x='16' y='22' text-anchor='middle' font-family='Georgia,serif' font-size='16' font-weight='700' fill='%23F4F7F5'>BT</text></svg>">
@@ -249,25 +249,25 @@
             position: relative;
             min-height: calc(100svh - var(--nav-h));
             display: flex;
-            align-items: flex-end;
+            align-items: center;
             overflow: hidden;
             background-color: #14201c;
             background-image:
-                linear-gradient(105deg, rgba(20, 32, 28, 0.94) 0%, rgba(20, 32, 28, 0.82) 38%, rgba(20, 32, 28, 0.45) 62%, rgba(20, 32, 28, 0.2) 100%),
-                url("profile.jpg");
+                linear-gradient(120deg, rgba(12, 22, 19, 0.92) 0%, rgba(12, 22, 19, 0.78) 45%, rgba(12, 22, 19, 0.55) 100%),
+                url("hero-bg.jpg");
             background-repeat: no-repeat;
             background-size: cover;
-            background-position: 72% 18%;
+            background-position: center;
         }
         .hero-plane::after {
             content: "";
             position: absolute;
             inset: 0;
             background-image:
-                linear-gradient(rgba(244,247,245,0.045) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(244,247,245,0.045) 1px, transparent 1px);
+                linear-gradient(rgba(244,247,245,0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(244,247,245,0.04) 1px, transparent 1px);
             background-size: 48px 48px;
-            mask-image: linear-gradient(90deg, black 15%, transparent 70%);
+            mask-image: radial-gradient(ellipse 70% 70% at 30% 50%, black 20%, transparent 75%);
             pointer-events: none;
         }
         @media (prefers-reduced-motion: no-preference) {
@@ -281,11 +281,36 @@
         .hero-content {
             position: relative;
             z-index: 1;
-            width: min(40rem, calc(100% - 2rem));
-            margin: 0 auto 0 max(1rem, calc((100% - var(--max)) / 2));
+            width: min(var(--max), calc(100% - 2rem));
+            margin: 0 auto;
             padding: clamp(2.5rem, 7vw, 5rem) 0;
             color: #f4f7f5;
+            display: flex;
+            align-items: center;
+            gap: clamp(1.25rem, 3vw, 2.25rem);
         }
+
+        .hero-avatar {
+            flex-shrink: 0;
+            width: clamp(7.5rem, 18vw, 10.5rem);
+            height: clamp(7.5rem, 18vw, 10.5rem);
+            border-radius: 50%;
+            padding: 4px;
+            background: linear-gradient(145deg, #7ecfc6, #0f766e 45%, #c9783a);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+        }
+        .hero-avatar img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center 18%;
+            display: block;
+            background: #1a2a24;
+            border: 3px solid rgba(20, 32, 28, 0.55);
+        }
+
+        .hero-copy { min-width: 0; flex: 1; }
 
         .hero-kicker {
             display: inline-flex;
@@ -296,7 +321,7 @@
             letter-spacing: 0.12em;
             text-transform: uppercase;
             color: #b7dcd7;
-            margin-bottom: 1.25rem;
+            margin-bottom: 1rem;
         }
         .hero-kicker::before {
             content: "";
@@ -306,22 +331,22 @@
         }
 
         .hero h1 {
-            font-size: clamp(3rem, 8vw, 5.6rem);
+            font-size: clamp(2.6rem, 6.5vw, 5rem);
             color: #fff;
-            margin-bottom: 0.85rem;
+            margin-bottom: 0.7rem;
             text-shadow: 0 2px 24px rgba(0,0,0,0.35);
         }
         .hero-title {
-            font-size: clamp(1.15rem, 2.4vw, 1.45rem);
+            font-size: clamp(1.05rem, 2.2vw, 1.35rem);
             font-weight: 500;
             color: #d7e8e3;
-            margin-bottom: 1.1rem;
+            margin-bottom: 1rem;
         }
         .hero-lead {
             font-size: 1.05rem;
             color: rgba(244, 247, 245, 0.88);
             max-width: 34rem;
-            margin-bottom: 1.8rem;
+            margin-bottom: 1.6rem;
         }
         .hero-cta {
             display: flex;
@@ -330,6 +355,7 @@
         }
 
         @media (prefers-reduced-motion: no-preference) {
+            .hero-avatar,
             .hero-kicker,
             .hero h1,
             .hero-title,
@@ -337,10 +363,11 @@
             .hero-cta {
                 animation: rise 0.75s ease both;
             }
-            .hero h1 { animation-delay: 0.08s; }
-            .hero-title { animation-delay: 0.16s; }
+            .hero-kicker { animation-delay: 0.06s; }
+            .hero h1 { animation-delay: 0.12s; }
+            .hero-title { animation-delay: 0.18s; }
             .hero-lead { animation-delay: 0.24s; }
-            .hero-cta { animation-delay: 0.32s; }
+            .hero-cta { animation-delay: 0.3s; }
         }
 
         @keyframes rise {
@@ -350,15 +377,19 @@
 
         @media (max-width: 720px) {
             .hero-plane {
-                background-position: 65% 12%;
-                background-image:
-                    linear-gradient(180deg, rgba(20, 32, 28, 0.55) 0%, rgba(20, 32, 28, 0.78) 45%, rgba(20, 32, 28, 0.94) 100%),
-                    url("profile.jpg");
                 align-items: flex-end;
+                background-image:
+                    linear-gradient(180deg, rgba(12, 22, 19, 0.55) 0%, rgba(12, 22, 19, 0.82) 48%, rgba(12, 22, 19, 0.94) 100%),
+                    url("hero-bg.jpg");
             }
             .hero-content {
-                margin-left: 1rem;
+                flex-direction: column;
+                align-items: flex-start;
                 width: calc(100% - 2rem);
+            }
+            .hero-avatar {
+                width: 6.75rem;
+                height: 6.75rem;
             }
         }
 
@@ -726,20 +757,25 @@
         <section class="hero" id="hero">
             <div class="hero-plane">
                 <div class="hero-content">
-                    <p class="hero-kicker" data-tr="Portfolyo / 2026" data-en="Portfolio / 2026">Portfolyo / 2026</p>
-                    <h1 class="display">Batuhan Taşdemir</h1>
-                    <p class="hero-title" data-tr="Bilgisayar Mühendisi · Full-Stack Geliştirici" data-en="Computer Engineer · Full-Stack Developer">
-                        Bilgisayar Mühendisi · Full-Stack Geliştirici
-                    </p>
-                    <p class="hero-lead"
-                       data-tr="TED Üniversitesi’nden uçtan uca yönetim sistemleri, mobil arayüzler ve pratik AI araçları üreten bir mühendis."
-                       data-en="A TED University engineer building end-to-end management systems, mobile interfaces, and practical AI tools.">
-                        TED Üniversitesi’nden uçtan uca yönetim sistemleri, mobil arayüzler ve pratik AI araçları üreten bir mühendis.
-                    </p>
-                    <div class="hero-cta">
-                        <a class="btn btn-primary" href="#projects" data-tr="Projelere bak" data-en="View projects">Projelere bak</a>
-                        <a class="btn btn-ghost cv-link" href="Batuhan_Tasdemir_CV_TR.pdf" target="_blank" rel="noopener"
-                           data-tr="CV indir" data-en="Download CV">CV indir</a>
+                    <div class="hero-avatar">
+                        <img src="profile.jpg" alt="Batuhan Taşdemir" width="168" height="168">
+                    </div>
+                    <div class="hero-copy">
+                        <p class="hero-kicker" data-tr="Portfolyo / 2026" data-en="Portfolio / 2026">Portfolyo / 2026</p>
+                        <h1 class="display">Batuhan Taşdemir</h1>
+                        <p class="hero-title" data-tr="Bilgisayar Mühendisliği Mezunu · Software Engineer" data-en="Computer Engineering Graduate · Software Engineer">
+                            Bilgisayar Mühendisliği Mezunu · Software Engineer
+                        </p>
+                        <p class="hero-lead"
+                           data-tr="TED Üniversitesi mezunu. Uçtan uca yönetim sistemleri, oyun geliştirme ve pratik AI araçları üzerine çalışan bir yazılım mühendisi."
+                           data-en="TED University graduate. A software engineer focused on end-to-end management systems, game development, and practical AI tools.">
+                            TED Üniversitesi mezunu. Uçtan uca yönetim sistemleri, oyun geliştirme ve pratik AI araçları üzerine çalışan bir yazılım mühendisi.
+                        </p>
+                        <div class="hero-cta">
+                            <a class="btn btn-primary" href="#projects" data-tr="Projelere bak" data-en="View projects">Projelere bak</a>
+                            <a class="btn btn-ghost cv-link" href="Batuhan_Tasdemir_CV_TR.pdf" target="_blank" rel="noopener"
+                               data-tr="CV indir" data-en="Download CV">CV indir</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -755,17 +791,17 @@
                 </div>
                 <div class="about-grid">
                     <div class="about-copy">
-                        <p data-tr="TED Üniversitesi Bilgisayar Mühendisliği 4. sınıf öğrencisiyim. C#, C++, Python ve Flutter ile backend mantığını işlevsel arayüzlere bağlayan uygulamalar geliştiriyorum."
-                           data-en="I’m a Computer Engineering senior at TED University. I build applications in C#, C++, Python, and Flutter that connect solid backend logic to functional interfaces.">
-                            TED Üniversitesi Bilgisayar Mühendisliği 4. sınıf öğrencisiyim. C#, C++, Python ve Flutter ile backend mantığını işlevsel arayüzlere bağlayan uygulamalar geliştiriyorum.
+                        <p data-tr="TED Üniversitesi Bilgisayar Mühendisliği mezunuyum. C#, C++ ve Python ile backend mantığını işlevsel arayüzlere bağlayan uygulamalar geliştiriyorum; yazılım mühendisliği ve oyun geliştirme odaklıyım."
+                           data-en="I’m a Computer Engineering graduate from TED University. I build applications in C#, C++, and Python that connect solid backend logic to functional interfaces, with a focus on software engineering and game development.">
+                            TED Üniversitesi Bilgisayar Mühendisliği mezunuyum. C#, C++ ve Python ile backend mantığını işlevsel arayüzlere bağlayan uygulamalar geliştiriyorum; yazılım mühendisliği ve oyun geliştirme odaklıyım.
                         </p>
-                        <p data-tr="OOP, veritabanı tasarımı ve Agile süreçlerinde güçlüyüm. Amacım: abartısız, bakımı kolay ve gerçek iş akışlarını hızlandıran yazılımlar üretmek."
-                           data-en="I have a strong foundation in OOP, database design, and Agile ways of working. I focus on practical software that is maintainable and speeds up real workflows.">
-                            OOP, veritabanı tasarımı ve Agile süreçlerinde güçlüyüm. Amacım: abartısız, bakımı kolay ve gerçek iş akışlarını hızlandıran yazılımlar üretmek.
+                        <p data-tr="UML, yazılım tasarımı ve test süreçlerinde güçlüyüm. Amacım: abartısız, bakımı kolay ve gerçek iş akışlarını hızlandıran yazılımlar üretmek."
+                           data-en="I have a strong foundation in UML, software design, and testing. I focus on practical software that is maintainable and speeds up real workflows.">
+                            UML, yazılım tasarımı ve test süreçlerinde güçlüyüm. Amacım: abartısız, bakımı kolay ve gerçek iş akışlarını hızlandıran yazılımlar üretmek.
                         </p>
-                        <p data-tr="Boş zamanımda Generative AI gelişmelerini takip ediyor, açık kaynak projeleri inceliyor ve satrançla analitik düşüncemi keskinleştiriyorum."
-                           data-en="Outside class and work, I follow Generative AI, explore open-source projects, and sharpen analytical thinking through chess.">
-                            Boş zamanımda Generative AI gelişmelerini takip ediyor, açık kaynak projeleri inceliyor ve satrançla analitik düşüncemi keskinleştiriyorum.
+                        <p data-tr="Sürekli öğrenmeye açık biriyim; Generative AI gelişmelerini takip ediyor, açık kaynak projeleri inceliyor ve satrançla analitik düşüncemi keskinleştiriyorum."
+                           data-en="I’m committed to continuous learning—following Generative AI, exploring open-source projects, and sharpening analytical thinking through chess.">
+                            Sürekli öğrenmeye açık biriyim; Generative AI gelişmelerini takip ediyor, açık kaynak projeleri inceliyor ve satrançla analitik düşüncemi keskinleştiriyorum.
                         </p>
                     </div>
                     <dl class="facts">
@@ -781,7 +817,7 @@
                             <dt data-tr="Eğitim" data-en="Education">Eğitim</dt>
                             <dd>
                                 <span data-tr="TED Üniversitesi — Bilgisayar Mühendisliği" data-en="TED University — Computer Engineering">TED Üniversitesi — Bilgisayar Mühendisliği</span>
-                                <small data-tr="2022–2026 (beklenen) · %50 burs" data-en="2022–2026 (expected) · 50% scholarship">2022–2026 (beklenen) · %50 burs</small>
+                                <small data-tr="2022–2026 · Mezun · %50 burs" data-en="2022–2026 · Graduate · 50% scholarship">2022–2026 · Mezun · %50 burs</small>
                             </dd>
                         </div>
                         <div class="fact">
@@ -798,9 +834,9 @@
                 <div class="section-head">
                     <p class="eyebrow">02 — Skills</p>
                     <h2 class="display" data-tr="Araç çantam" data-en="My toolkit">Araç çantam</h2>
-                    <p data-tr="Günlük işimde kullandığım diller, kütüphaneler ve yöntemler."
-                       data-en="Languages, libraries, and methods I use in day-to-day work.">
-                        Günlük işimde kullandığım diller, kütüphaneler ve yöntemler.
+                    <p data-tr="LinkedIn profilimdeki yetenekler ve stajlarda kullandığım araçlar."
+                       data-en="Skills from my LinkedIn profile, plus tools from internship work.">
+                        LinkedIn profilimdeki yetenekler ve stajlarda kullandığım araçlar.
                     </p>
                 </div>
                 <div class="skill-groups">
@@ -808,44 +844,44 @@
                         <h3 data-tr="Programlama" data-en="Programming">Programlama</h3>
                         <div class="tags">
                             <span class="tag">C#</span>
-                            <span class="tag">Python</span>
+                            <span class="tag">C</span>
                             <span class="tag">C++</span>
                             <span class="tag">Java</span>
-                            <span class="tag">Dart</span>
+                            <span class="tag">Python</span>
                             <span class="tag">SQL</span>
-                            <span class="tag">HTML / CSS</span>
+                            <span class="tag">MySQL</span>
                         </div>
                     </div>
                     <div class="skill-group">
-                        <h3 data-tr="Framework & AI" data-en="Frameworks & AI">Framework & AI</h3>
+                        <h3 data-tr="Yazılım mühendisliği" data-en="Software engineering">Yazılım mühendisliği</h3>
                         <div class="tags">
-                            <span class="tag">.NET</span>
-                            <span class="tag">Unity</span>
-                            <span class="tag">Flutter</span>
-                            <span class="tag">SpaCy</span>
-                            <span class="tag">OpenCV</span>
-                            <span class="tag">SQLite</span>
-                        </div>
-                    </div>
-                    <div class="skill-group">
-                        <h3 data-tr="Yazılım kavramları" data-en="Engineering concepts">Yazılım kavramları</h3>
-                        <div class="tags">
-                            <span class="tag">OOP</span>
-                            <span class="tag">Design Patterns</span>
-                            <span class="tag">REST API</span>
-                            <span class="tag">Agile / Scrum</span>
+                            <span class="tag">Software Engineering</span>
                             <span class="tag">UML</span>
-                            <span class="tag">RDBMS</span>
+                            <span class="tag">Software Design</span>
+                            <span class="tag">Testing</span>
+                            <span class="tag">OOP</span>
+                            <span class="tag">Programming</span>
                         </div>
                     </div>
                     <div class="skill-group">
-                        <h3 data-tr="Araçlar" data-en="Tools">Araçlar</h3>
+                        <h3 data-tr="Oyun geliştirme" data-en="Game development">Oyun geliştirme</h3>
                         <div class="tags">
+                            <span class="tag">Game Development</span>
+                            <span class="tag">Unity</span>
+                            <span class="tag">C#</span>
+                            <span class="tag">Oyun Tasarımı</span>
+                        </div>
+                    </div>
+                    <div class="skill-group">
+                        <h3 data-tr="Araçlar & diğer" data-en="Tools & more">Araçlar & diğer</h3>
+                        <div class="tags">
+                            <span class="tag">Microsoft Excel</span>
                             <span class="tag">Git</span>
                             <span class="tag">GitHub</span>
                             <span class="tag">Visual Studio</span>
                             <span class="tag">JetBrains Rider</span>
-                            <span class="tag">Figma</span>
+                            <span class="tag">SpaCy</span>
+                            <span class="tag">OpenCV</span>
                         </div>
                     </div>
                 </div>
@@ -926,9 +962,9 @@
                 <div class="section-head">
                     <p class="eyebrow">04 — Projects</p>
                     <h2 class="display" data-tr="Seçili çalışmalar" data-en="Selected work">Seçili çalışmalar</h2>
-                    <p data-tr="Masaüstü operasyon panellerinden mobil kataloglara ve AI proje yüzeylerine."
-                       data-en="From desktop operations panels to mobile catalogs and AI project surfaces.">
-                        Masaüstü operasyon panellerinden mobil kataloglara ve AI proje yüzeylerine.
+                    <p data-tr="Masaüstü operasyon panellerinden oyun sistemlerine ve AI araçlarına."
+                       data-en="From desktop operations panels to game systems and AI tools.">
+                        Masaüstü operasyon panellerinden oyun sistemlerine ve AI araçlarına.
                     </p>
                 </div>
                 <div class="project-list">
@@ -974,26 +1010,6 @@
 
                     <article class="project">
                         <p class="project-index">03</p>
-                        <div>
-                            <h3>NovaStore</h3>
-                            <p data-tr="Flutter ile geliştirilmiş mini e-ticaret katalog uygulaması: giriş, kategori filtreli ürün ızgarası, detay akışları ve merkezi tema yönetimi."
-                               data-en="Flutter mini e-commerce catalog with login, filtered product grid, detail flows, and centralized theming—built as an internship capstone module.">
-                                Flutter ile geliştirilmiş mini e-ticaret katalog uygulaması: giriş, kategori filtreli ürün ızgarası, detay akışları ve merkezi tema yönetimi.
-                            </p>
-                            <a class="project-link" href="https://github.com/CaptainBlc/NovaStoreMobil" target="_blank" rel="noopener">
-                                <span data-tr="GitHub’da aç" data-en="Open on GitHub">GitHub’da aç</span>
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg>
-                            </a>
-                        </div>
-                        <div class="project-side">
-                            <span class="tech">Flutter</span>
-                            <span class="tech">Dart</span>
-                            <span class="tech">UI</span>
-                        </div>
-                    </article>
-
-                    <article class="project">
-                        <p class="project-index">04</p>
                         <div>
                             <h3 data-tr="NLP NER Aracı" data-en="NLP NER Tool">NLP NER Aracı</h3>
                             <p data-tr="SpaCy ile ham metinden varlık çıkaran ve sınıflandıran NLP aracı; büyük metin kümelerini otomatik kategorilere ayırır."
