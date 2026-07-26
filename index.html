@@ -251,31 +251,62 @@
             display: flex;
             align-items: center;
             overflow: hidden;
-            background-color: #14201c;
-            background-image:
-                linear-gradient(120deg, rgba(12, 22, 19, 0.92) 0%, rgba(12, 22, 19, 0.78) 45%, rgba(12, 22, 19, 0.55) 100%),
-                url("hero-bg.jpg");
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
+            background:
+                radial-gradient(ellipse 55% 45% at 15% 20%, rgba(15, 118, 110, 0.35), transparent 60%),
+                radial-gradient(ellipse 45% 40% at 85% 70%, rgba(201, 120, 58, 0.18), transparent 55%),
+                radial-gradient(ellipse 40% 35% at 60% 10%, rgba(126, 207, 198, 0.12), transparent 50%),
+                linear-gradient(160deg, #0d1714 0%, #14201c 45%, #0f1a17 100%);
+        }
+        .hero-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            pointer-events: none;
+            opacity: 0.45;
+        }
+        .hero-orb-1 {
+            width: 280px; height: 280px;
+            background: #0f766e;
+            top: 10%; left: -4%;
+        }
+        .hero-orb-2 {
+            width: 220px; height: 220px;
+            background: #c9783a;
+            bottom: 12%; right: 4%;
+        }
+        .hero-orb-3 {
+            width: 160px; height: 160px;
+            background: #7ecfc6;
+            top: 45%; left: 48%;
         }
         .hero-plane::after {
             content: "";
             position: absolute;
             inset: 0;
             background-image:
-                linear-gradient(rgba(244,247,245,0.04) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(244,247,245,0.04) 1px, transparent 1px);
+                linear-gradient(rgba(244,247,245,0.035) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(244,247,245,0.035) 1px, transparent 1px);
             background-size: 48px 48px;
-            mask-image: radial-gradient(ellipse 70% 70% at 30% 50%, black 20%, transparent 75%);
+            mask-image: radial-gradient(ellipse 80% 70% at 40% 50%, black 10%, transparent 70%);
             pointer-events: none;
         }
         @media (prefers-reduced-motion: no-preference) {
             .hero-plane::after { animation: grid-drift 28s linear infinite; }
+            .hero-orb-1 { animation: orb-a 14s ease-in-out infinite; }
+            .hero-orb-2 { animation: orb-b 18s ease-in-out infinite; }
+            .hero-orb-3 { animation: orb-a 16s ease-in-out infinite reverse; }
         }
         @keyframes grid-drift {
             from { background-position: 0 0, 0 0; }
             to { background-position: 48px 48px, 48px 0; }
+        }
+        @keyframes orb-a {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(24px, -18px) scale(1.08); }
+        }
+        @keyframes orb-b {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(-20px, 16px) scale(1.1); }
         }
 
         .hero-content {
@@ -292,8 +323,8 @@
 
         .hero-avatar {
             flex-shrink: 0;
-            width: clamp(7.5rem, 18vw, 10.5rem);
-            height: clamp(7.5rem, 18vw, 10.5rem);
+            width: clamp(8rem, 20vw, 11.5rem);
+            height: clamp(8rem, 20vw, 11.5rem);
             border-radius: 50%;
             padding: 4px;
             background: linear-gradient(145deg, #7ecfc6, #0f766e 45%, #c9783a);
@@ -304,7 +335,7 @@
             height: 100%;
             border-radius: 50%;
             object-fit: cover;
-            object-position: center 18%;
+            object-position: center 12%;
             display: block;
             background: #1a2a24;
             border: 3px solid rgba(20, 32, 28, 0.55);
@@ -334,7 +365,6 @@
             font-size: clamp(2.6rem, 6.5vw, 5rem);
             color: #fff;
             margin-bottom: 0.7rem;
-            text-shadow: 0 2px 24px rgba(0,0,0,0.35);
         }
         .hero-title {
             font-size: clamp(1.05rem, 2.2vw, 1.35rem);
@@ -355,7 +385,9 @@
         }
 
         @media (prefers-reduced-motion: no-preference) {
-            .hero-avatar,
+            .hero-avatar {
+                animation: rise 0.75s ease both, avatar-float 5.5s ease-in-out 0.8s infinite;
+            }
             .hero-kicker,
             .hero h1,
             .hero-title,
@@ -374,22 +406,21 @@
             from { opacity: 0; transform: translateY(18px); }
             to { opacity: 1; transform: translateY(0); }
         }
+        @keyframes avatar-float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
 
         @media (max-width: 720px) {
-            .hero-plane {
-                align-items: flex-end;
-                background-image:
-                    linear-gradient(180deg, rgba(12, 22, 19, 0.55) 0%, rgba(12, 22, 19, 0.82) 48%, rgba(12, 22, 19, 0.94) 100%),
-                    url("hero-bg.jpg");
-            }
+            .hero-plane { align-items: center; }
             .hero-content {
                 flex-direction: column;
                 align-items: flex-start;
                 width: calc(100% - 2rem);
             }
             .hero-avatar {
-                width: 6.75rem;
-                height: 6.75rem;
+                width: 7.25rem;
+                height: 7.25rem;
             }
         }
 
@@ -450,12 +481,66 @@
 
         .reveal {
             opacity: 0;
-            transform: translateY(18px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
+            transform: translateY(22px);
+            transition: opacity 0.65s ease, transform 0.65s ease;
         }
         .reveal.visible {
             opacity: 1;
             transform: none;
+        }
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-24px);
+            transition: opacity 0.65s ease, transform 0.65s ease;
+        }
+        .reveal-left.visible {
+            opacity: 1;
+            transform: none;
+        }
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(24px);
+            transition: opacity 0.65s ease, transform 0.65s ease;
+        }
+        .reveal-right.visible {
+            opacity: 1;
+            transform: none;
+        }
+        .stagger > .stagger-item {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.45s ease, transform 0.45s ease;
+        }
+        .stagger.visible > .stagger-item {
+            opacity: 1;
+            transform: none;
+        }
+        .stagger.visible > .stagger-item:nth-child(1) { transition-delay: 0.05s; }
+        .stagger.visible > .stagger-item:nth-child(2) { transition-delay: 0.1s; }
+        .stagger.visible > .stagger-item:nth-child(3) { transition-delay: 0.15s; }
+        .stagger.visible > .stagger-item:nth-child(4) { transition-delay: 0.2s; }
+        .stagger.visible > .stagger-item:nth-child(5) { transition-delay: 0.25s; }
+        .stagger.visible > .stagger-item:nth-child(6) { transition-delay: 0.3s; }
+        .stagger.visible > .stagger-item:nth-child(7) { transition-delay: 0.35s; }
+        .stagger.visible > .stagger-item:nth-child(8) { transition-delay: 0.4s; }
+
+        .section-head .eyebrow {
+            display: inline-block;
+        }
+        @media (prefers-reduced-motion: no-preference) {
+            .section-head.visible .eyebrow {
+                animation: kicker-slide 0.6s ease both;
+            }
+            .section-head.visible h2 {
+                animation: rise 0.7s ease 0.08s both;
+            }
+            .section-head.visible p {
+                animation: rise 0.7s ease 0.16s both;
+            }
+        }
+        @keyframes kicker-slide {
+            from { opacity: 0; transform: translateX(-12px); }
+            to { opacity: 1; transform: none; }
         }
 
         /* About */
@@ -482,6 +567,12 @@
             gap: 1rem;
             padding: 1rem 0;
             border-bottom: 1px solid var(--line);
+            transition: background 0.25s ease, padding 0.25s ease;
+        }
+        .fact:hover {
+            background: rgba(15, 118, 110, 0.04);
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
         }
         .fact dt {
             font-family: "IBM Plex Mono", monospace;
@@ -498,7 +589,30 @@
             font-weight: 400;
             color: var(--muted);
         }
-        .status-live { color: var(--accent-deep); }
+        .status-live {
+            color: var(--accent-deep);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+        }
+        .status-live::before {
+            content: "";
+            width: 0.5rem;
+            height: 0.5rem;
+            border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 0 0 rgba(15, 118, 110, 0.45);
+        }
+        @media (prefers-reduced-motion: no-preference) {
+            .status-live::before {
+                animation: pulse-dot 1.8s ease-out infinite;
+            }
+        }
+        @keyframes pulse-dot {
+            0% { box-shadow: 0 0 0 0 rgba(15, 118, 110, 0.45); }
+            70% { box-shadow: 0 0 0 8px rgba(15, 118, 110, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(15, 118, 110, 0); }
+        }
 
         /* Skills */
         .skill-groups {
@@ -508,6 +622,10 @@
         @media (min-width: 720px) {
             .skill-groups { grid-template-columns: 1fr 1fr; }
         }
+        .skill-group {
+            transition: transform 0.3s ease;
+        }
+        .skill-group:hover { transform: translateY(-3px); }
         .skill-group h3 {
             font-family: "IBM Plex Mono", monospace;
             font-size: 0.78rem;
@@ -529,12 +647,13 @@
             font-size: 0.9rem;
             font-weight: 600;
             color: var(--ink-soft);
-            transition: border-color 0.2s, transform 0.2s, background 0.2s;
+            transition: border-color 0.25s, transform 0.25s, background 0.25s, box-shadow 0.25s;
         }
         .tag:hover {
             border-color: var(--accent);
             background: var(--accent-soft);
-            transform: translateY(-1px);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 18px rgba(15, 118, 110, 0.12);
         }
 
         /* Experience */
@@ -544,6 +663,11 @@
             gap: 1rem;
             padding: 1.6rem 0;
             border-top: 1px solid var(--line);
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+        .exp:hover {
+            background: rgba(255,255,255,0.35);
+            transform: translateX(4px);
         }
         .exp:last-child { border-bottom: 1px solid var(--line); }
         @media (min-width: 800px) {
@@ -607,12 +731,13 @@
             gap: 0.85rem;
             padding: 1.5rem 0;
             border-bottom: 1px solid var(--line);
-            transition: background 0.2s ease, padding 0.2s ease;
+            transition: background 0.3s ease, padding 0.3s ease, transform 0.3s ease;
         }
         .project:hover {
             background: rgba(255,255,255,0.45);
             padding-left: 0.75rem;
             padding-right: 0.75rem;
+            transform: translateY(-2px);
         }
         @media (min-width: 800px) {
             .project {
@@ -664,6 +789,12 @@
             padding: clamp(1.75rem, 4vw, 2.75rem);
             display: grid;
             gap: 1.5rem;
+            transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+        }
+        .contact-band:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 40px rgba(20, 32, 28, 0.08);
+            border-color: rgba(15, 118, 110, 0.35);
         }
         @media (min-width: 800px) {
             .contact-band {
@@ -717,7 +848,13 @@
                 animation: none !important;
                 transition: none !important;
             }
-            .reveal { opacity: 1; transform: none; }
+            .reveal,
+            .reveal-left,
+            .reveal-right,
+            .stagger > .stagger-item {
+                opacity: 1;
+                transform: none;
+            }
         }
     </style>
 </head>
@@ -756,9 +893,12 @@
     <main>
         <section class="hero" id="hero">
             <div class="hero-plane">
+                <div class="hero-orb hero-orb-1" aria-hidden="true"></div>
+                <div class="hero-orb hero-orb-2" aria-hidden="true"></div>
+                <div class="hero-orb hero-orb-3" aria-hidden="true"></div>
                 <div class="hero-content">
                     <div class="hero-avatar">
-                        <img src="profile.jpg" alt="Batuhan Taşdemir" width="168" height="168">
+                        <img src="profile.jpg" alt="Batuhan Taşdemir" width="184" height="184">
                     </div>
                     <div class="hero-copy">
                         <p class="hero-kicker" data-tr="Portfolyo / 2026" data-en="Portfolio / 2026">Portfolyo / 2026</p>
@@ -782,15 +922,15 @@
         </section>
 
         <section id="about">
-            <div class="wrap reveal">
-                <div class="section-head">
+            <div class="wrap">
+                <div class="section-head reveal">
                     <p class="eyebrow">01 — About</p>
                     <h2 class="display" data-tr="Sistemleri baştan sona kuruyorum" data-en="I build systems end to end">
                         Sistemleri baştan sona kuruyorum
                     </h2>
                 </div>
                 <div class="about-grid">
-                    <div class="about-copy">
+                    <div class="about-copy reveal-left">
                         <p data-tr="TED Üniversitesi Bilgisayar Mühendisliği mezunuyum. C#, C++ ve Python ile backend mantığını işlevsel arayüzlere bağlayan uygulamalar geliştiriyorum; yazılım mühendisliği ve oyun geliştirme odaklıyım."
                            data-en="I’m a Computer Engineering graduate from TED University. I build applications in C#, C++, and Python that connect solid backend logic to functional interfaces, with a focus on software engineering and game development.">
                             TED Üniversitesi Bilgisayar Mühendisliği mezunuyum. C#, C++ ve Python ile backend mantığını işlevsel arayüzlere bağlayan uygulamalar geliştiriyorum; yazılım mühendisliği ve oyun geliştirme odaklıyım.
@@ -804,23 +944,23 @@
                             Sürekli öğrenmeye açık biriyim; Generative AI gelişmelerini takip ediyor, açık kaynak projeleri inceliyor ve satrançla analitik düşüncemi keskinleştiriyorum.
                         </p>
                     </div>
-                    <dl class="facts">
-                        <div class="fact">
+                    <dl class="facts stagger reveal-right">
+                        <div class="fact stagger-item">
                             <dt data-tr="Konum" data-en="Location">Konum</dt>
                             <dd>Ankara, Türkiye</dd>
                         </div>
-                        <div class="fact">
+                        <div class="fact stagger-item">
                             <dt data-tr="Durum" data-en="Status">Durum</dt>
                             <dd class="status-live" data-tr="Fırsatlara açık" data-en="Open to opportunities">Fırsatlara açık</dd>
                         </div>
-                        <div class="fact">
+                        <div class="fact stagger-item">
                             <dt data-tr="Eğitim" data-en="Education">Eğitim</dt>
                             <dd>
                                 <span data-tr="TED Üniversitesi — Bilgisayar Mühendisliği" data-en="TED University — Computer Engineering">TED Üniversitesi — Bilgisayar Mühendisliği</span>
                                 <small data-tr="2022–2026 · Mezun · %50 burs" data-en="2022–2026 · Graduate · 50% scholarship">2022–2026 · Mezun · %50 burs</small>
                             </dd>
                         </div>
-                        <div class="fact">
+                        <div class="fact stagger-item">
                             <dt data-tr="Diller" data-en="Languages">Diller</dt>
                             <dd data-tr="Türkçe (anadil) · İngilizce (C1–C2)" data-en="Turkish (native) · English (C1–C2)">Türkçe (anadil) · İngilizce (C1–C2)</dd>
                         </div>
@@ -830,8 +970,8 @@
         </section>
 
         <section id="skills">
-            <div class="wrap reveal">
-                <div class="section-head">
+            <div class="wrap">
+                <div class="section-head reveal">
                     <p class="eyebrow">02 — Skills</p>
                     <h2 class="display" data-tr="Araç çantam" data-en="My toolkit">Araç çantam</h2>
                     <p data-tr="LinkedIn profilimdeki yetenekler ve stajlarda kullandığım araçlar."
@@ -839,8 +979,8 @@
                         LinkedIn profilimdeki yetenekler ve stajlarda kullandığım araçlar.
                     </p>
                 </div>
-                <div class="skill-groups">
-                    <div class="skill-group">
+                <div class="skill-groups stagger">
+                    <div class="skill-group stagger-item">
                         <h3 data-tr="Programlama" data-en="Programming">Programlama</h3>
                         <div class="tags">
                             <span class="tag">C#</span>
@@ -852,7 +992,7 @@
                             <span class="tag">MySQL</span>
                         </div>
                     </div>
-                    <div class="skill-group">
+                    <div class="skill-group stagger-item">
                         <h3 data-tr="Yazılım mühendisliği" data-en="Software engineering">Yazılım mühendisliği</h3>
                         <div class="tags">
                             <span class="tag">Software Engineering</span>
@@ -863,7 +1003,7 @@
                             <span class="tag">Programming</span>
                         </div>
                     </div>
-                    <div class="skill-group">
+                    <div class="skill-group stagger-item">
                         <h3 data-tr="Oyun geliştirme" data-en="Game development">Oyun geliştirme</h3>
                         <div class="tags">
                             <span class="tag">Game Development</span>
@@ -872,7 +1012,7 @@
                             <span class="tag">Oyun Tasarımı</span>
                         </div>
                     </div>
-                    <div class="skill-group">
+                    <div class="skill-group stagger-item">
                         <h3 data-tr="Araçlar & diğer" data-en="Tools & more">Araçlar & diğer</h3>
                         <div class="tags">
                             <span class="tag">Microsoft Excel</span>
@@ -889,8 +1029,8 @@
         </section>
 
         <section id="experience">
-            <div class="wrap reveal">
-                <div class="section-head">
+            <div class="wrap">
+                <div class="section-head reveal">
                     <p class="eyebrow">03 — Experience</p>
                     <h2 class="display" data-tr="Deneyim" data-en="Experience">Deneyim</h2>
                     <p data-tr="Stajlarda oyun sistemleri, bilgisayarlı görü ve NLP üzerine çalıştım."
@@ -898,8 +1038,8 @@
                         Stajlarda oyun sistemleri, bilgisayarlı görü ve NLP üzerine çalıştım.
                     </p>
                 </div>
-                <div class="timeline">
-                    <article class="exp">
+                <div class="timeline stagger">
+                    <article class="exp stagger-item">
                         <p class="exp-date">07.2025 – 08.2025</p>
                         <div>
                             <h3 data-tr="Oyun Geliştirici Stajyeri" data-en="Game Developer Intern">Oyun Geliştirici Stajyeri</h3>
@@ -926,7 +1066,7 @@
                             </div>
                         </div>
                     </article>
-                    <article class="exp">
+                    <article class="exp stagger-item">
                         <p class="exp-date">06.2024 – 08.2024</p>
                         <div>
                             <h3 data-tr="Yazılım Programcısı Stajyeri" data-en="Software Programmer Intern">Yazılım Programcısı Stajyeri</h3>
@@ -958,8 +1098,8 @@
         </section>
 
         <section id="projects">
-            <div class="wrap reveal">
-                <div class="section-head">
+            <div class="wrap">
+                <div class="section-head reveal">
                     <p class="eyebrow">04 — Projects</p>
                     <h2 class="display" data-tr="Seçili çalışmalar" data-en="Selected work">Seçili çalışmalar</h2>
                     <p data-tr="Masaüstü operasyon panellerinden oyun sistemlerine ve AI araçlarına."
@@ -967,8 +1107,8 @@
                         Masaüstü operasyon panellerinden oyun sistemlerine ve AI araçlarına.
                     </p>
                 </div>
-                <div class="project-list">
-                    <article class="project">
+                <div class="project-list stagger">
+                    <article class="project stagger-item">
                         <p class="project-index">01</p>
                         <div>
                             <h3>Leta-Takip</h3>
@@ -988,7 +1128,7 @@
                         </div>
                     </article>
 
-                    <article class="project">
+                    <article class="project stagger-item">
                         <p class="project-index">02</p>
                         <div>
                             <h3>OptiLumen</h3>
@@ -1008,7 +1148,7 @@
                         </div>
                     </article>
 
-                    <article class="project">
+                    <article class="project stagger-item">
                         <p class="project-index">03</p>
                         <div>
                             <h3 data-tr="NLP NER Aracı" data-en="NLP NER Tool">NLP NER Aracı</h3>
@@ -1038,8 +1178,8 @@
         </section>
 
         <section id="contact">
-            <div class="wrap reveal">
-                <div class="contact-band">
+            <div class="wrap">
+                <div class="contact-band reveal">
                     <div>
                         <p class="eyebrow">05 — Contact</p>
                         <h2 class="display" data-tr="Birlikte bir şey kuralım" data-en="Let’s build something">
@@ -1055,16 +1195,16 @@
                         <a class="btn btn-outline cv-link" href="Batuhan_Tasdemir_CV_TR.pdf" target="_blank" rel="noopener" data-tr="CV indir" data-en="Download CV">CV indir</a>
                     </div>
                 </div>
-                <div class="contact-links">
-                    <a href="https://github.com/CaptainBlc" target="_blank" rel="noopener">
+                <div class="contact-links stagger">
+                    <a class="stagger-item" href="https://github.com/CaptainBlc" target="_blank" rel="noopener">
                         <span>GitHub</span>
                         <strong>@CaptainBlc</strong>
                     </a>
-                    <a href="https://linkedin.com/in/batuhantasdemir03" target="_blank" rel="noopener">
+                    <a class="stagger-item" href="https://linkedin.com/in/batuhantasdemir03" target="_blank" rel="noopener">
                         <span>LinkedIn</span>
                         <strong>batuhantasdemir03</strong>
                     </a>
-                    <a href="mailto:batuhanmedine2003@hotmail.com">
+                    <a class="stagger-item" href="mailto:batuhanmedine2003@hotmail.com">
                         <span>Email</span>
                         <strong>batuhanmedine2003@hotmail.com</strong>
                     </a>
@@ -1140,7 +1280,24 @@
                 revealObserver.unobserve(entry.target);
             });
         }, { threshold: 0.12, rootMargin: '0px 0px -24px 0px' });
-        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+        document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .stagger').forEach(el => {
+            revealObserver.observe(el);
+        });
+
+        // Soft parallax on hero orbs
+        const heroPlane = document.querySelector('.hero-plane');
+        const orbs = document.querySelectorAll('.hero-orb');
+        if (heroPlane && orbs.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            heroPlane.addEventListener('pointermove', (e) => {
+                const rect = heroPlane.getBoundingClientRect();
+                const x = (e.clientX - rect.left) / rect.width - 0.5;
+                const y = (e.clientY - rect.top) / rect.height - 0.5;
+                orbs.forEach((orb, i) => {
+                    const depth = (i + 1) * 10;
+                    orb.style.translate = `${x * depth}px ${y * depth}px`;
+                });
+            }, { passive: true });
+        }
 
         document.getElementById('footer-year').textContent = new Date().getFullYear();
     </script>
